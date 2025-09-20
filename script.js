@@ -56,14 +56,25 @@ function check(e) {
     // click NOT on the menu
     if (checkParent(target, navMenu)) {
       // click on the link
-      if (navMenuDiv.classList.contains("hidden")) {
-        navMenuDiv.classList.remove("hidden");
+      e.preventDefault();
+
+      // Check if mobile (screen width < 768px)
+      if (window.innerWidth < 768) {
+        // Show cute bear modal for mobile
+        showBearModal();
       } else {
-        navMenuDiv.classList.add("hidden");
+        // Show navigation menu for desktop
+        if (navMenuDiv.classList.contains("hidden")) {
+          navMenuDiv.classList.remove("hidden");
+        } else {
+          navMenuDiv.classList.add("hidden");
+        }
       }
     } else {
       // click both outside link and outside menu, hide menu
       navMenuDiv.classList.add("hidden");
+      // Also hide bear modal if open
+      hideBearModal();
     }
   }
 }
@@ -75,6 +86,115 @@ function checkParent(t, elm) {
     t = t.parentNode;
   }
   return false;
+}
+
+// Bear modal functions for mobile hamburger menu
+function showBearModal() {
+  let bearModal = document.getElementById('bearModal');
+  if (!bearModal) {
+    // Create the modal if it doesn't exist
+    bearModal = document.createElement('div');
+    bearModal.id = 'bearModal';
+    bearModal.innerHTML = `
+      <div class="bear-modal-overlay" style="
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.7);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 10000;
+        animation: fadeIn 0.3s ease-in-out;
+      ">
+        <div class="bear-modal-content" style="
+          background: linear-gradient(135deg, #ff69b4, #ffb6c1);
+          border-radius: 20px;
+          padding: 30px;
+          text-align: center;
+          max-width: 300px;
+          width: 90%;
+          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+          animation: slideIn 0.4s ease-out;
+          position: relative;
+        ">
+          <div class="bear-svg-container" style="margin-bottom: 20px;">
+            <svg viewBox="0 0 200 200" style="width: 120px; height: 120px; margin: 0 auto; display: block;">
+              <defs>
+                <radialGradient id="bearHeadGrad" cx="50%" cy="50%" r="50%">
+                  <stop offset="0%" style="stop-color:#8B4513;stop-opacity:1" />
+                  <stop offset="100%" style="stop-color:#654321;stop-opacity:1" />
+                </radialGradient>
+              </defs>
+              <!-- Head -->
+              <ellipse cx="100" cy="105" rx="85" ry="75" fill="url(#bearHeadGrad)" />
+              <!-- Ears -->
+              <ellipse cx="60" cy="55" rx="25" ry="20" fill="url(#bearHeadGrad)" />
+              <ellipse cx="140" cy="55" rx="25" ry="20" fill="url(#bearHeadGrad)" />
+              <!-- Inner Ears -->
+              <ellipse cx="60" cy="55" rx="15" ry="10" fill="#D2B48C" />
+              <ellipse cx="140" cy="55" rx="15" ry="10" fill="#D2B48C" />
+              <!-- Eyes -->
+              <circle cx="80" cy="90" r="8" fill="#000" />
+              <circle cx="120" cy="90" r="8" fill="#000" />
+              <!-- Eye Highlights -->
+              <circle cx="82" cy="88" r="3" fill="#fff" />
+              <circle cx="122" cy="88" r="3" fill="#fff" />
+              <!-- Nose -->
+              <ellipse cx="100" cy="110" rx="6" ry="4" fill="#000" />
+              <!-- Mouth -->
+              <path d="M90 120 Q100 135 110 120" stroke="#000" stroke-width="2" fill="none" />
+              <!-- Cheeks -->
+              <ellipse cx="70" cy="115" rx="10" ry="5" fill="#FFB6C1" opacity="0.5" />
+              <ellipse cx="130" cy="115" rx="10" ry="5" fill="#FFB6C1" opacity="0.5" />
+              <!-- Fur Lines -->
+              <path d="M50 70 Q60 60 70 70" stroke="#654321" stroke-width="1" fill="none" />
+              <path d="M130 70 Q140 60 150 70" stroke="#654321" stroke-width="1" fill="none" />
+              <path d="M75 130 Q85 120 95 130" stroke="#654321" stroke-width="1" fill="none" />
+              <path d="M105 130 Q115 120 125 130" stroke="#654321" stroke-width="1" fill="none" />
+            </svg>
+          </div>
+          <h2 style="
+            color: #fff;
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+          ">¡Te Amo Princesa!</h2>
+          <p style="
+            color: #fff;
+            font-size: 18px;
+            margin-bottom: 20px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+          ">Feliz Día 💕</p>
+          <button onclick="hideBearModal()" style="
+            background: linear-gradient(135deg, #ff1493, #ff69b4);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 25px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+          " onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">❤️ Cerrar</button>
+        </div>
+      </div>
+    `;
+    document.body.appendChild(bearModal);
+  } else {
+    bearModal.style.display = 'flex';
+  }
+}
+
+function hideBearModal() {
+  const bearModal = document.getElementById('bearModal');
+  if (bearModal) {
+    bearModal.style.display = 'none';
+  }
 }
 
 // Game logic
@@ -308,12 +428,10 @@ document.addEventListener('DOMContentLoaded', function() {
         console.error('Could not get canvas context');
         return;
       }
-  
+
       this.victoryCanvas = document.getElementById('victoryCanvas');
       this.victoryCtx = this.victoryCanvas ? this.victoryCanvas.getContext('2d') : null;
       this.initialized = true;
-  
-      // Game initialization complete
 
       // Game constants
       this.baseWidth = 800;
@@ -1476,7 +1594,21 @@ document.addEventListener('DOMContentLoaded', function() {
         return;
       }
 
-      console.log('Starting King Rescue Adventure!');
+      // Force hide start screen immediately
+      const startScreen = document.getElementById('gameStart');
+      if (startScreen) {
+        startScreen.style.display = 'none';
+        startScreen.style.visibility = 'hidden';
+        startScreen.classList.add('hidden');
+        // Ensure it's hidden after a short delay
+        setTimeout(() => {
+          if (startScreen) {
+            startScreen.style.display = 'none';
+            startScreen.style.visibility = 'hidden';
+          }
+        }, 100);
+      }
+
       this.gameState = 'playing';
       this.timeLeft = 300;
       this.gameTime = 0;
@@ -1500,10 +1632,14 @@ document.addEventListener('DOMContentLoaded', function() {
       // Load level
       this.loadLevel(this.world, this.level);
 
-      // Hide all screens
+      // Hide all screens (backup)
       this.hideAllScreens();
 
-      // Game started
+      // Force start the game loop if not already running
+      if (!this.animationId) {
+        this.lastTime = performance.now();
+        this.gameLoop();
+      }
     }
 
     pauseGame() {
