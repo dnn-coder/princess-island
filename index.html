@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>
+      &#10084 Te Amo &#10084
+    </title>
+    <meta name="description" content="Simple landind page" />
+    <meta name="keywords" content="" />
+    <meta name="author" content="" />
+    <link rel="stylesheet" href="https://unpkg.com/tailwindcss@2.2.19/dist/tailwind.min.css"/>
+    <!--Replace with your tailwind.css once created-->
+    <link href="styles.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet" />
+    <!-- Define your gradient here - use online tools to find a gradient matching your branding-->
+  </head>
+  <body class="leading-normal tracking-normal text-white gradient" style="font-family: 'Source Sans Pro', sans-serif;">
+    <!--Nav-->
+    <nav id="header" class="fixed w-full z-30 top-0 text-white">
+      <div class="w-full container mx-auto flex flex-wrap items-center justify-between mt-0 py-2">
+        <div class="pl-4 flex items-center">
+          <a class="toggleColour text-white no-underline hover:no-underline font-bold text-2xl lg:text-4xl" href="#">
+            <!--Icon from: http://www.potlabicons.com/ -->
+           &#10084
+            TE AMO
+          </a>
+        </div>
+        <div class="block lg:hidden pr-4">
+          <button id="nav-toggle" class="flex items-center p-1 text-pink-800 hover:text-gray-900 focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
+            <svg class="fill-current h-6 w-6" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+              <title>Menu</title>
+              <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
+            </svg>
+          </button>
+        </div>
+        <div class="w-full flex-grow lg:flex lg:items-center lg:w-auto hidden mt-2 lg:mt-0 bg-white lg:bg-transparent text-black p-4 lg:p-0 z-20" id="nav-content">
+          <ul class="list-reset lg:flex justify-end flex-1 items-center">
+            <li class="mr-3">
+              <a class="inline-block py-2 px-4 text-black font-bold no-underline" href="#">Active</a>
+            </li>
+            <li class="mr-3">
+              <a class="inline-block text-black no-underline hover:text-gray-800 hover:text-underline py-2 px-4" href="#">link</a>
+            </li>
+            <li class="mr-3">
+              <a class="inline-block text-black no-underline hover:text-gray-800 hover:text-underline py-2 px-4" href="#">link</a>
+            </li>
+          </ul>
+          <button
+            id="navAction"
+            class="mx-auto lg:mx-0 hover:underline bg-white text-gray-800 font-bold rounded-full mt-4 lg:mt-0 py-4 px-8 shadow opacity-75 focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out"
+          >
+            Action
+          </button>
+        </div>
+      </div>
+      <hr class="border-b border-gray-100 opacity-25 my-0 py-0" />
+    </nav>
+    <!--Hero-->
+    <div class="pt-24">
+      <div class="container px-3 mx-auto flex flex-wrap flex-col md:flex-row items-center">
+        <!--Left Col-->
+        <div class="flex flex-col w-full md:w-2/5 justify-center items-start text-center md:text-left">
+          <p class="uppercase tracking-loose w-full">Eres la razón por la que sonrío sin motivo</p>
+          <h1 class="my-4 text-5xl font-bold leading-tight">
+            Feliz Día de Amor y Amistad Preciosa! &#10084
+          </h1>
+          <p class="leading-normal text-2xl mb-8">
+            No importa la fecha que sea, contigo todas se convierten en mi día favorito!
+          </p>
+          <button class="bg-pink-300 hover:bg-pink-400 text-white font-bold py-4 px-12 rounded-full my-6 shadow-lg focus:outline-none focus:shadow-outline transition hover:scale-105 duration-300 ease-in-out text-xl">
+            Te Amo
+          </button>
+        </div>
+        <!--Right Col-->
+        <div class="w-full md:w-3/5 py-6 text-center">
+          <div class="bear-container">
+            <svg viewBox="0 0 200 200" class="bear-svg">
+              <defs>
+                <radialGradient id="headGrad" cx="50%" cy="50%" r="50%">
+                  <stop offset="0%" style="stop-color:#8B4513;stop-opacity:1" />
+                  <stop offset="100%" style="stop-color:#654321;stop-opacity:1" />
+                </radialGradient>
+              </defs>
+              <!-- Head -->
+              <ellipse cx="100" cy="105" rx="85" ry="75" fill="url(#headGrad)" />
+              <!-- Ears -->
+              <ellipse cx="60" cy="55" rx="25" ry="20" fill="url(#headGrad)" />
+              <ellipse cx="140" cy="55" rx="25" ry="20" fill="url(#headGrad)" />
+              <!-- Inner Ears -->
+              <ellipse cx="60" cy="55" rx="15" ry="10" fill="#D2B48C" />
+              <ellipse cx="140" cy="55" rx="15" ry="10" fill="#D2B48C" />
+              <!-- Eyes -->
+              <circle cx="80" cy="90" r="8" fill="#000" />
+              <circle cx="120" cy="90" r="8" fill="#000" />
+              <!-- Eye Highlights -->
+              <circle cx="82" cy="88" r="3" fill="#fff" />
+              <circle cx="122" cy="88" r="3" fill="#fff" />
+              <!-- Nose -->
+              <ellipse cx="100" cy="110" rx="6" ry="4" fill="#000" />
+              <!-- Mouth -->
+              <path d="M90 120 Q100 135 110 120" stroke="#000" stroke-width="2" fill="none" />
+              <!-- Cheeks -->
+              <ellipse cx="70" cy="115" rx="10" ry="5" fill="#FFB6C1" opacity="0.5" />
+              <ellipse cx="130" cy="115" rx="10" ry="5" fill="#FFB6C1" opacity="0.5" />
+              <!-- Fur Lines -->
+              <path d="M50 70 Q60 60 70 70" stroke="#654321" stroke-width="1" fill="none" />
+              <path d="M130 70 Q140 60 150 70" stroke="#654321" stroke-width="1" fill="none" />
+              <path d="M75 130 Q85 120 95 130" stroke="#654321" stroke-width="1" fill="none" />
+              <path d="M105 130 Q115 120 125 130" stroke="#654321" stroke-width="1" fill="none" />
+            </svg>
+            <div class="heart">♥</div>
+            <div class="heart">♥</div>
+            <div class="heart">♥</div>
+            <div class="heart">♥</div>
+            <div class="heart">♥</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="relative -mt-12 lg:-mt-24">
+      <svg viewBox="0 0 1428 174" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+        <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+          <g transform="translate(-2.000000, 44.000000)" fill="#FFFFFF" fill-rule="nonzero">
+            <path d="M0,0 C90.7283404,0.927527913 147.912752,27.187927 291.910178,59.9119003 C387.908462,81.7278826 543.605069,89.334785 759,82.7326078 C469.336065,156.254352 216.336065,153.6679 0,74.9732496" opacity="0.100000001"></path>
+            <path
+              d="M100,104.708498 C277.413333,72.2345949 426.147877,52.5246657 546.203633,45.5787101 C666.259389,38.6327546 810.524845,41.7979068 979,55.0741668 C931.069965,56.122511 810.303266,74.8455141 616.699903,111.243176 C423.096539,147.640838 250.863238,145.462612 100,104.708498 Z"
+              opacity="0.100000001"
+            ></path>
+            <path d="M1046,51.6521276 C1130.83045,29.328812 1279.08318,17.607883 1439,40.1656806 L1439,120 C1271.17211,77.9435312 1140.17211,55.1609071 1046,51.6521276 Z" id="Path-4" opacity="0.200000003"></path>
+          </g>
+          <g transform="translate(-4.000000, 76.000000)" fill="#FFFFFF" fill-rule="nonzero">
+            <path
+              d="M0.457,34.035 C57.086,53.198 98.208,65.809 123.822,71.865 C181.454,85.495 234.295,90.29 272.033,93.459 C311.355,96.759 396.635,95.801 461.025,91.663 C486.76,90.01 518.727,86.372 556.926,80.752 C595.747,74.596 622.372,70.008 636.799,66.991 C663.913,61.324 712.501,49.503 727.605,46.128 C780.47,34.317 818.839,22.532 856.324,15.904 C922.689,4.169 955.676,2.522 1011.185,0.432 C1060.705,1.477 1097.39,3.129 1121.236,5.387 C1161.703,9.219 1208.621,17.821 1235.4,22.304 C1285.855,30.748 1354.351,47.432 1440.886,72.354 L1441.191,104.352 L1.121,104.031 L0.457,34.035 Z"
+            ></path>
+          </g>
+        </g>
+      </svg>
+    </div>
+    <section class="bg-white border-b py-8">
+      <div class="container max-w-5xl mx-auto m-8">
+        <h2 class="w-full my-2 text-5xl font-bold leading-tight text-center text-gray-800">
+          Roxana
+        </h2>
+        <div class="w-full mb-4">
+          <div class="h-1 mx-auto gradient w-64 opacity-25 my-0 py-0 rounded-t"></div>
+        </div>
+        <div class="flex flex-wrap">
+          <div class="w-5/6 sm:w-1/2 p-6">
+            <h3 class="text-3xl text-gray-800 font-bold leading-none mb-3">
+              Tu nombre habla de ti
+            </h3>
+            <p class="text-gray-600 mb-8">
+              Proviene del persa antiguo Raoxshna (o Roxane en griego), que significa "luminosa", "brillante", "resplandeciente como el amanecer".
+              <br />
+              <br />
+
+              Images from:
+
+              <a class="text-pink-500 underline" href="https://undraw.co/">undraw.co</a>
+            </p>
+          </div>
+        <div class="w-full md:w-1/4 p-6 flex flex-col flex-grow flex-shrink relative">
+          <div class="flex-1 bg-gradient-to-br from-white to-gray-100 rounded-t rounded-b-none overflow-hidden shadow relative">
+            <div class="p-6">
+              <div class="dog-container mb-4">
+                <svg viewBox="0 0 200 200" class="dog-svg">
+                  <defs>
+                    <radialGradient id="dogHeadGrad" cx="50%" cy="50%" r="50%">
+                      <stop offset="0%" style="stop-color:#ffffff;stop-opacity:1" />
+                      <stop offset="100%" style="stop-color:#f0f0f0;stop-opacity:1" />
+                    </radialGradient>
+                  </defs>
+                  <!-- Head -->
+                  <ellipse cx="100" cy="105" rx="85" ry="75" fill="url(#dogHeadGrad)" />
+                  <!-- Ears -->
+                  <ellipse cx="50" cy="45" rx="20" ry="30" fill="url(#dogHeadGrad)" />
+                  <ellipse cx="150" cy="45" rx="20" ry="30" fill="url(#dogHeadGrad)" />
+                  <!-- Eyes -->
+                  <circle cx="80" cy="90" r="8" fill="#000" />
+                  <circle cx="120" cy="90" r="8" fill="#000" />
+                  <!-- Eye highlights -->
+                  <circle cx="82" cy="88" r="3" fill="#fff" />
+                  <circle cx="122" cy="88" r="3" fill="#fff" />
+                  <!-- Nose -->
+                  <ellipse cx="100" cy="115" rx="6" ry="4" fill="#000" />
+                  <!-- Mouth -->
+                  <path d="M90 125 Q100 140 110 125" stroke="#000" stroke-width="2" fill="none" />
+                  <!-- Tongue -->
+                  <ellipse cx="100" cy="135" rx="4" ry="6" fill="#ff69b4" />
+                  <!-- Cheeks -->
+                  <ellipse cx="70" cy="110" rx="8" ry="5" fill="#ffb6c1" opacity="0.5" />
+                  <ellipse cx="130" cy="110" rx="8" ry="5" fill="#ffb6c1" opacity="0.5" />
+                </svg>
+              </div>
+              <p id="resultDog" class="text-center text-lg font-semibold text-gray-800"></p>
+              <div class="bones-container">
+                <div class="bone">🦴</div>
+                <div class="bone">🦴</div>
+                <div class="bone">🦴</div>
+                <div class="bone">🦴</div>
+                <div class="bone">🦴</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+        <div class="flex flex-wrap flex-col-reverse sm:flex-row">
+          <div class="w-full md:w-1/4 p-6 flex flex-col flex-grow flex-shrink relative">
+          <div class="flex-1 bg-gradient-to-br from-yellow-200 to-yellow-400 rounded-t rounded-b-none overflow-hidden shadow relative">
+            <div class="p-6">
+              <div class="cat-container mb-4">
+                <svg viewBox="0 0 200 200" class="cat-svg">
+                  <defs>
+                    <radialGradient id="catHeadGrad" cx="50%" cy="50%" r="50%">
+                      <stop offset="0%" style="stop-color:#ffd700;stop-opacity:1" />
+                      <stop offset="100%" style="stop-color:#ffa500;stop-opacity:1" />
+                    </radialGradient>
+                  </defs>
+                  <!-- Head -->
+                  <ellipse cx="100" cy="105" rx="85" ry="75" fill="url(#catHeadGrad)" />
+                  <!-- Ears -->
+                  <ellipse cx="55" cy="45" rx="15" ry="25" fill="url(#catHeadGrad)" />
+                  <ellipse cx="145" cy="45" rx="15" ry="25" fill="url(#catHeadGrad)" />
+                  <!-- Inner Ears -->
+                  <ellipse cx="55" cy="45" rx="8" ry="12" fill="#ffb6c1" />
+                  <ellipse cx="145" cy="45" rx="8" ry="12" fill="#ffb6c1" />
+                  <!-- Eyes -->
+                  <ellipse cx="80" cy="90" rx="10" ry="8" fill="#000" />
+                  <ellipse cx="120" cy="90" rx="10" ry="8" fill="#000" />
+                  <!-- Eye highlights -->
+                  <circle cx="82" cy="88" r="3" fill="#fff" />
+                  <circle cx="122" cy="88" r="3" fill="#fff" />
+                  <!-- Nose -->
+                  <ellipse cx="100" cy="110" rx="4" ry="3" fill="#000" />
+                  <!-- Mouth -->
+                  <path d="M90 115 Q100 125 110 115" stroke="#000" stroke-width="2" fill="none" />
+                  <!-- Whiskers -->
+                  <line x1="40" y1="100" x2="70" y2="105" stroke="#000" stroke-width="1" />
+                  <line x1="130" y1="105" x2="160" y2="100" stroke="#000" stroke-width="1" />
+                  <line x1="40" y1="115" x2="70" y2="115" stroke="#000" stroke-width="1" />
+                  <line x1="130" y1="115" x2="160" y2="115" stroke="#000" stroke-width="1" />
+                  <!-- Cheeks -->
+                  <ellipse cx="70" cy="110" rx="8" ry="5" fill="#ffb6c1" opacity="0.5" />
+                  <ellipse cx="130" cy="110" rx="8" ry="5" fill="#ffb6c1" opacity="0.5" />
+                </svg>
+              </div>
+              <p id="resultCat" class="text-center text-lg font-semibold text-gray-800"></p>
+              <div class="fish-container">
+                <div class="fish">🐟</div>
+                <div class="fish">🐟</div>
+                <div class="fish">🐟</div>
+                <div class="fish">🐟</div>
+                <div class="fish">🐟</div>
+              </div>
+            </div>
+          </div>
+        </div>
+          <div class="w-full sm:w-1/2 p-6 mt-6">
+            <div class="align-middle">
+              <h3 class="text-3xl text-gray-800 font-bold leading-none mb-3">
+                Su historia
+              </h3>
+              <p class="text-gray-600 mb-8">
+                El nombre se hizo célebre gracias a Roxana de Bactria, hija de un noble bactriano llamada Roxane o Roxana. Ella fue la esposa de Alejandro Magno, con quien se casó en el 327 a. C. durante la campaña en Asia. Según los cronistas, era considerada una de las mujeres más bellas de su tiempo.
+                <br />
+                <br />
+                Images from:
+
+                <a class="text-pink-500 underline" href="https://undraw.co/">undraw.co</a>
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="flex flex-wrap mt-8">
+          <div class="w-full md:w-1/3 p-6 flex flex-col flex-grow flex-shrink relative">
+            <div class="flex-1 bg-gradient-to-br from-green-200 to-green-400 rounded-t rounded-b-none overflow-hidden shadow relative">
+              <div class="p-6">
+                <div class="pear-container mb-4">
+                  <svg viewBox="0 0 200 250" class="pear-svg">
+                    <defs>
+                      <radialGradient id="pearGrad" cx="40%" cy="35%" r="70%">
+                        <stop offset="0%" style="stop-color:#98FB98;stop-opacity:1" />
+                        <stop offset="50%" style="stop-color:#32CD32;stop-opacity:1" />
+                        <stop offset="100%" style="stop-color:#006400;stop-opacity:1" />
+                      </radialGradient>
+                      <radialGradient id="highlightGrad" cx="30%" cy="20%" r="40%">
+                        <stop offset="0%" style="stop-color:#ffffff;stop-opacity:0.8" />
+                        <stop offset="100%" style="stop-color:#ffffff;stop-opacity:0" />
+                      </radialGradient>
+                      <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+                        <feDropShadow dx="3" dy="3" stdDeviation="3" flood-color="#000" flood-opacity="0.3"/>
+                      </filter>
+                    </defs>
+                    <!-- Shadow -->
+                    <ellipse cx="103" cy="125" rx="72" ry="92" fill="#000" opacity="0.2" filter="blur(2px)" />
+                    <!-- Pear body -->
+                    <ellipse cx="100" cy="120" rx="70" ry="90" fill="url(#pearGrad)" filter="url(#shadow)" />
+                    <!-- Highlight -->
+                    <ellipse cx="80" cy="90" rx="25" ry="30" fill="url(#highlightGrad)" opacity="0.6" />
+                    <!-- Pear top -->
+                    <ellipse cx="100" cy="50" rx="30" ry="40" fill="url(#pearGrad)" />
+                    <!-- Stem -->
+                    <rect x="95" y="15" width="10" height="25" fill="#8B4513" rx="2" />
+                    <!-- Stem highlight -->
+                    <rect x="96" y="16" width="3" height="23" fill="#D2691E" />
+                    <!-- Leaf -->
+                    <ellipse cx="110" cy="20" rx="15" ry="8" fill="#32CD32" transform="rotate(-20 110 20)" />
+                    <!-- Leaf vein -->
+                    <path d="M110 20 L125 18" stroke="#228B22" stroke-width="1" />
+                    <!-- Eyes -->
+                    <circle cx="85" cy="100" r="4" fill="#000" />
+                    <circle cx="115" cy="100" r="4" fill="#000" />
+                    <!-- Eye highlights -->
+                    <circle cx="86" cy="98" r="1.5" fill="#fff" />
+                    <circle cx="116" cy="98" r="1.5" fill="#fff" />
+                    <!-- Smile -->
+                    <path d="M85 125 Q100 135 115 125" stroke="#000" stroke-width="2" fill="none" />
+                    <!-- Blush -->
+                    <ellipse cx="75" cy="115" rx="6" ry="4" fill="#FFB6C1" opacity="0.7" />
+                    <ellipse cx="125" cy="115" rx="6" ry="4" fill="#FFB6C1" opacity="0.7" />
+                  </svg>
+                </div>
+                <h3 class="text-3xl text-white font-bold leading-none mb-3">Juego de Pera</h3>
+                <p id="questionPear" class="text-white mb-4">¿Quieres ver un momento lindo?</p>
+                <div class="flex justify-center space-x-4 mb-4">
+                  <button id="yesBtnPear" class="bg-green-600 hover:bg-green-800 text-white font-bold py-2 px-4 rounded shadow-lg transform hover:scale-105 transition duration-300">Sí</button>
+                  <button id="noBtnPear" class="bg-green-600 hover:bg-green-800 text-white font-bold py-2 px-4 rounded shadow-lg transform hover:scale-105 transition duration-300">No</button>
+                </div>
+                <p id="resultPear" class="text-center text-lg font-semibold text-white"></p>
+                <div id="imageContainer" class="mt-4 hidden">
+                  <div class="image-wrapper">
+                    <img id="randomImage" src="" alt="Momento lindo" class="max-w-full h-auto rounded-lg shadow-lg" />
+                    <div class="floating-hearts">
+                      <span class="float-heart">💖</span>
+                      <span class="float-heart">💕</span>
+                      <span class="float-heart">💖</span>
+                      <span class="float-heart">💕</span>
+                      <span class="float-heart">💖</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="leaves-container">
+                  <div class="leaf">🍃</div>
+                  <div class="leaf">🍃</div>
+                  <div class="leaf">🍃</div>
+                  <div class="leaf">🍃</div>
+                  <div class="leaf">🍃</div>
+                </div>
+              </div>
+            </div>
+            <div class="flex-none mt-auto bg-gradient-to-br from-green-200 to-green-400 rounded-b rounded-t-none overflow-hidden shadow p-6">
+              <div class="flex items-center justify-center">
+                <button id="resetBtnPear" class="mx-auto lg:mx-0 hover:underline bg-green-600 text-white font-bold rounded-full my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">Jugar de Nuevo</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="bg-white border-b py-8">
+      <div class="container mx-auto flex flex-wrap pt-4 pb-12">
+        <h2 class="w-full my-2 text-5xl font-bold leading-tight text-center text-gray-800">
+          Un osito cariñosito para ti mi vida &#10084
+        </h2>
+        <div class="w-full mb-4">
+          <div class="h-1 mx-auto gradient w-64 opacity-25 my-0 py-0 rounded-t"></div>
+        </div>
+        
+        
+        <div class="w-full md:w-1/3 p-6 flex flex-col flex-grow flex-shrink relative">
+          <div class="flex-1 bg-gradient-to-br from-pink-300 to-pink-500 rounded-t rounded-b-none overflow-hidden shadow relative">
+            <div class="p-6">
+              <div class="bear-container-small mb-4">
+                <svg viewBox="0 0 200 200" class="bear-svg-small">
+                  <defs>
+                    <radialGradient id="headGradSmall" cx="50%" cy="50%" r="50%">
+                      <stop offset="0%" style="stop-color:#8B4513;stop-opacity:1" />
+                      <stop offset="100%" style="stop-color:#654321;stop-opacity:1" />
+                    </radialGradient>
+                  </defs>
+                  <ellipse cx="100" cy="105" rx="85" ry="75" fill="url(#headGradSmall)" />
+                  <ellipse cx="60" cy="55" rx="25" ry="20" fill="url(#headGradSmall)" />
+                  <ellipse cx="140" cy="55" rx="25" ry="20" fill="url(#headGradSmall)" />
+                  <ellipse cx="60" cy="55" rx="15" ry="10" fill="#D2B48C" />
+                  <ellipse cx="140" cy="55" rx="15" ry="10" fill="#D2B48C" />
+                  <circle cx="80" cy="90" r="8" fill="#000" />
+                  <circle cx="120" cy="90" r="8" fill="#000" />
+                  <circle cx="82" cy="88" r="3" fill="#fff" />
+                  <circle cx="122" cy="88" r="3" fill="#fff" />
+                  <ellipse cx="100" cy="110" rx="6" ry="4" fill="#000" />
+                  <path d="M90 120 Q100 135 110 120" stroke="#000" stroke-width="2" fill="none" />
+                  <ellipse cx="70" cy="115" rx="10" ry="5" fill="#FFB6C1" opacity="0.5" />
+                  <ellipse cx="130" cy="115" rx="10" ry="5" fill="#FFB6C1" opacity="0.5" />
+                  <path d="M50 70 Q60 60 70 70" stroke="#654321" stroke-width="1" fill="none" />
+                  <path d="M130 70 Q140 60 150 70" stroke="#654321" stroke-width="1" fill="none" />
+                  <path d="M75 130 Q85 120 95 130" stroke="#654321" stroke-width="1" fill="none" />
+                  <path d="M105 130 Q115 120 125 130" stroke="#654321" stroke-width="1" fill="none" />
+                </svg>
+              </div>
+              <h3 class="text-3xl text-white font-bold leading-none mb-3">Juego de Pregunta</h3>
+              <p id="question" class="text-white mb-4">Tengo algo muy importante que decirte amor, ¿quieres saber qué es?</p>
+              <div class="flex justify-center space-x-4 mb-4">
+                <button id="yesBtn" class="bg-pink-600 hover:bg-pink-800 text-white font-bold py-2 px-4 rounded shadow-lg transform hover:scale-105 transition duration-300">Sí</button>
+                <button id="noBtn" class="bg-pink-600 hover:bg-pink-800 text-white font-bold py-2 px-4 rounded shadow-lg transform hover:scale-105 transition duration-300">No</button>
+              </div>
+              <p id="result" class="text-center text-lg font-semibold text-white"></p>
+              <div class="hearts-container">
+                <div class="heart-card">♥</div>
+                <div class="heart-card">♥</div>
+                <div class="heart-card">♥</div>
+                <div class="heart-card">♥</div>
+                <div class="heart-card">♥</div>
+                <div class="heart-card">♥</div>
+                <div class="heart-card">♥</div>
+                <div class="heart-card">♥</div>
+                <div class="heart-card">♥</div>
+                <div class="heart-card">♥</div>
+              </div>
+            </div>
+          </div>
+          <div class="flex-none mt-auto bg-gradient-to-br from-pink-300 to-pink-500 rounded-b rounded-t-none overflow-hidden shadow p-6">
+            <div class="flex items-center justify-center">
+              <button id="resetBtn" class="mx-auto lg:mx-0 hover:underline gradient text-white font-bold rounded-full my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">Jugar de Nuevo</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- King Rescue Adventure Game Section -->
+    <section class="bg-gradient-to-br from-purple-200 to-pink-300 border-b py-4 md:py-8">
+      <div class="container max-w-6xl mx-auto px-4 md:px-8">
+        <h2 class="w-full my-2 text-3xl md:text-5xl font-bold leading-tight text-center text-purple-800">
+          King Rescue Adventure
+        </h2>
+        <div class="w-full mb-4">
+          <div class="h-1 mx-auto gradient w-32 md:w-64 opacity-25 my-0 py-0 rounded-t"></div>
+        </div>
+        <div class="flex flex-wrap justify-center">
+          <div class="w-full max-w-4xl p-2 md:p-6 flex flex-col flex-grow flex-shrink relative">
+            <div class="flex-1 bg-gradient-to-br from-purple-100 to-pink-200 rounded-t rounded-b-none overflow-hidden shadow relative min-h-96 md:min-h-96">
+              <div class="p-0 md:p-6 h-full flex flex-col">
+                <!-- Game Canvas - Full Screen -->
+                <div class="relative w-full h-full min-h-96">
+                  <canvas id="gameCanvas" width="800" height="400" class="w-full h-full block bg-gradient-to-b from-sky-300 to-green-300"></canvas>
+
+                  <!-- Game Start Screen -->
+                  <div id="gameStart" class="absolute inset-0 flex items-center justify-center z-30 bg-black bg-opacity-75">
+                    <div class="text-center">
+                      <h2 class="text-2xl md:text-4xl font-bold text-white mb-4">King Rescue Adventure</h2>
+                      <p class="text-white mb-6 max-w-md">Ayuda al Rey Danny jajaja XD a salvar a su princesa Roxana de las manos de un malvado dragon recolectando corazones y derrotando enemigos!</p>
+                      <button id="startGameBtn" class="bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white font-bold py-3 px-6 rounded-full shadow-lg transform hover:scale-105 transition duration-300 text-lg">¡Comenzar Aventura!</button>
+                    </div>
+                  </div>
+
+                  <!-- Instructions Screen -->
+                  <div id="instructions" class="absolute inset-0 flex items-center justify-center z-30 bg-black bg-opacity-75 hidden">
+                    <div class="text-center max-w-lg mx-auto p-6">
+                      <h3 class="text-2xl font-bold text-white mb-4">Instrucciones</h3>
+                      <div class="bg-white p-4 rounded-lg shadow-lg mb-4">
+                        <p class="mb-2 text-left"><strong>🎮 Controles:</strong></p>
+                        <p class="mb-1 text-left">• ← → : Mover al rey</p>
+                        <p class="mb-1 text-left">• ↑ : Saltar (mantén presionado para salto cargado)</p>
+                        <p class="mb-1 text-left">• ↓ : Agacharse</p>
+                        <p class="mb-1 text-left">• Espacio : Pausar/Reanudar</p>
+                        <p class="mb-3 text-left">• Toca la pantalla en móviles</p>
+
+                        <p class="mb-2 text-left"><strong>🎯 Objetivo:</strong></p>
+                        <p class="mb-1 text-left">• Recoge 8 corazones para ganar</p>
+                        <p class="mb-1 text-left">• Evita a los Nogros enemigos</p>
+                        <p class="mb-1 text-left">• Recoge monedas y power-ups</p>
+
+                        <p class="mb-2 text-left"><strong>💎 Power-ups:</strong></p>
+                        <p class="mb-1 text-left">• 🛡️ : Escudo (inmunidad temporal)</p>
+                        <p class="mb-1 text-left">• ⭐ : Invencibilidad</p>
+                        <p class="mb-1 text-left">• 💨 : Velocidad aumentada</p>
+                        <p class="mb-1 text-left">• ❤️ : Vida extra</p>
+                      </div>
+                      <button id="startFromInstructionsBtn" class="bg-gradient-to-r from-green-500 to-blue-500 hover:from-green-600 hover:to-blue-600 text-white font-bold py-2 px-4 rounded-full shadow-lg transform hover:scale-105 transition duration-300">¡Comenzar Aventura!</button>
+                    </div>
+                  </div>
+
+                  <!-- Pause Screen -->
+                  <div id="pauseScreen" class="absolute inset-0 flex items-center justify-center z-30 bg-black bg-opacity-75 hidden">
+                    <div class="text-center">
+                      <h3 class="text-2xl font-bold text-white mb-4">Juego Pausado</h3>
+                      <div class="space-y-2">
+                        <button id="resumeBtn" class="bg-gradient-to-r from-green-500 to-blue-500 hover:from-green-600 hover:to-blue-600 text-white font-bold py-2 px-4 rounded-full shadow-lg transform hover:scale-105 transition duration-300 block mx-auto">Reanudar</button>
+                        <button id="restartBtn" class="bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 text-white font-bold py-2 px-4 rounded-full shadow-lg transform hover:scale-105 transition duration-300 block mx-auto mt-2">Reiniciar Nivel</button>
+                        <button id="quitBtn" class="bg-gradient-to-r from-gray-500 to-gray-600 hover:from-gray-600 hover:to-gray-700 text-white font-bold py-2 px-4 rounded-full shadow-lg transform hover:scale-105 transition duration-300 block mx-auto mt-2">Salir al Menú</button>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Game Over Screen -->
+                  <div id="gameOver" class="absolute inset-0 flex items-center justify-center z-30 bg-black bg-opacity-75 hidden">
+                    <div class="text-center">
+                      <h3 class="text-2xl font-bold text-red-400 mb-2">💔 Game Over!</h3>
+                      <p class="text-white mb-4">El rey necesita tu ayuda! ¿Intentar de nuevo?</p>
+                      <div class="flex justify-center space-x-4">
+                        <button id="restartLevelBtn" class="bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 text-white font-bold py-2 px-4 rounded-full shadow-lg transform hover:scale-105 transition duration-300">Reiniciar Nivel</button>
+                        <button id="restartGameBtn" class="bg-gradient-to-r from-red-500 to-pink-500 hover:from-red-600 hover:to-pink-600 text-white font-bold py-2 px-4 rounded-full shadow-lg transform hover:scale-105 transition duration-300">Reiniciar Juego</button>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Level Complete Screen -->
+                  <div id="levelComplete" class="absolute inset-0 flex items-center justify-center z-30 bg-black bg-opacity-75 hidden">
+                    <div class="text-center">
+                      <h3 class="text-2xl font-bold text-green-400 mb-2">🌟 ¡Nivel Completado!</h3>
+                      <p class="text-white mb-4">¡Excelente trabajo! ¿Listo para el siguiente nivel?</p>
+                      <div class="flex justify-center space-x-4">
+                        <button id="restartLevelBtnComplete" class="bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 text-white font-bold py-2 px-4 rounded-full shadow-lg transform hover:scale-105 transition duration-300">Reiniciar Nivel</button>
+                        <button id="nextLevelBtn" class="bg-gradient-to-r from-green-500 to-blue-500 hover:from-green-600 hover:to-blue-600 text-white font-bold py-2 px-4 rounded-full shadow-lg transform hover:scale-105 transition duration-300">Siguiente Nivel</button>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Victory Screen -->
+                  <div id="gameWin" class="absolute inset-0 flex items-center justify-center z-30 bg-black bg-opacity-75 hidden">
+                    <div class="text-center">
+                      <h3 class="text-2xl font-bold text-yellow-400 mb-2">🎉 ¡Princesa Salvada! 🎉</h3>
+                      <p class="text-white mb-4">¡Felicitaciones! Has salvado a la princesa!</p>
+                      <div class="flex justify-center space-x-4">
+                        <button id="nextLevelBtnWin" class="bg-gradient-to-r from-green-500 to-blue-500 hover:from-green-600 hover:to-blue-600 text-white font-bold py-2 px-4 rounded-full shadow-lg transform hover:scale-105 transition duration-300">Siguiente Nivel</button>
+                        <button id="playAgainBtn" class="bg-gradient-to-r from-yellow-500 to-orange-500 hover:from-yellow-600 hover:to-orange-600 text-white font-bold py-2 px-4 rounded-full shadow-lg transform hover:scale-105 transition duration-300">Jugar de Nuevo</button>
+                        <button id="restartGameBtnWin" class="bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white font-bold py-2 px-4 rounded-full shadow-lg transform hover:scale-105 transition duration-300">Nuevo Juego</button>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Victory Animation -->
+                  <div id="victoryAnimation" class="absolute inset-0 flex items-center justify-center z-30 bg-black bg-opacity-75 hidden">
+                    <div class="text-center">
+                      <canvas id="victoryCanvas" width="400" height="300" class="border-2 border-yellow-300 rounded-lg shadow-lg mx-auto"></canvas>
+                      <p class="text-white mt-4">¡Mira cómo el rey salva a su princesa!</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Control Buttons - Simplified Layout -->
+            <div class="mt-8 mb-4">
+              <!-- Desktop Control Buttons -->
+              <div class="hidden md:flex justify-between items-center max-w-4xl mx-auto px-8">
+                <!-- Left side: Movement arrows -->
+                <div class="flex space-x-4">
+                  <button id="leftBtn" class="bg-purple-600 hover:bg-purple-800 text-white font-bold w-24 h-24 rounded-full shadow-lg transform hover:scale-110 transition duration-200 text-4xl flex items-center justify-center">←</button>
+                  <button id="rightBtn" class="bg-purple-600 hover:bg-purple-800 text-white font-bold w-24 h-24 rounded-full shadow-lg transform hover:scale-110 transition duration-200 text-4xl flex items-center justify-center">→</button>
+                </div>
+
+                <!-- Right side: Jump button -->
+                <div class="flex">
+                  <button id="jumpBtn" class="bg-pink-600 hover:bg-pink-800 text-white font-bold w-24 h-24 rounded-full shadow-lg transform hover:scale-110 transition duration-200 text-4xl flex items-center justify-center">↑</button>
+                </div>
+              </div>
+
+              <!-- Mobile Control Buttons -->
+              <div class="md:hidden flex justify-between items-center px-4 mt-4">
+                <!-- Left side: Movement arrows -->
+                <div class="flex space-x-3">
+                  <button id="leftBtnMobile" class="bg-purple-600 hover:bg-purple-800 text-white font-bold w-20 h-20 rounded-full shadow-lg transform active:scale-95 transition duration-150 text-3xl flex items-center justify-center">←</button>
+                  <button id="rightBtnMobile" class="bg-purple-600 hover:bg-purple-800 text-white font-bold w-20 h-20 rounded-full shadow-lg transform active:scale-95 transition duration-150 text-3xl flex items-center justify-center">→</button>
+                </div>
+
+                <!-- Right side: Jump button -->
+                <div class="flex">
+                  <button id="jumpBtnMobile" class="bg-pink-600 hover:bg-pink-800 text-white font-bold w-20 h-20 rounded-full shadow-lg transform active:scale-95 transition duration-150 text-3xl flex items-center justify-center">↑</button>
+                </div>
+              </div>
+            </div>
+            <div class="flex-none mt-auto bg-gradient-to-br from-purple-100 to-pink-200 rounded-b rounded-t-none overflow-hidden shadow p-6">
+              <div class="flex items-center justify-center">
+                <p class="text-purple-800 text-center">Usa las teclas de flecha o botones para moverte y saltar. ¡Recoge todos los 8 corazones para salvar a la princesa!</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Change the colour #f8fafc to match the previous section colour -->
+    <svg class="wave-top" viewBox="0 0 1439 147" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+      <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g transform="translate(-1.000000, -14.000000)" fill-rule="nonzero">
+          <g class="wave" fill="#f8fafc">
+            <path
+              d="M1440,84 C1383.555,64.3 1342.555,51.3 1317,45 C1259.5,30.824 1206.707,25.526 1169,22 C1129.711,18.326 1044.426,18.475 980,22 C954.25,23.409 922.25,26.742 884,32 C845.122,37.787 818.455,42.121 804,45 C776.833,50.41 728.136,61.77 713,65 C660.023,76.309 621.544,87.729 584,94 C517.525,105.104 484.525,106.438 429,108 C379.49,106.484 342.823,104.484 319,102 C278.571,97.783 231.737,88.736 205,84 C154.629,75.076 86.296,57.743 0,32 L0,0 L1440,0 L1440,84 Z"
+            ></path>
+          </g>
+          <g transform="translate(1.000000, 15.000000)" fill="#FFFFFF">
+            <g transform="translate(719.500000, 68.500000) rotate(-180.000000) translate(-719.500000, -68.500000) ">
+              <path d="M0,0 C90.7283404,0.927527913 147.912752,27.187927 291.910178,59.9119003 C387.908462,81.7278826 543.605069,89.334785 759,82.7326078 C469.336065,156.254352 216.336065,153.6679 0,74.9732496" opacity="0.100000001"></path>
+              <path
+                d="M100,104.708498 C277.413333,72.2345949 426.147877,52.5246657 546.203633,45.5787101 C666.259389,38.6327546 810.524845,41.7979068 979,55.0741668 C931.069965,56.122511 810.303266,74.8455141 616.699903,111.243176 C423.096539,147.640838 250.863238,145.462612 100,104.708498 Z"
+                opacity="0.100000001"
+              ></path>
+              <path d="M1046,51.6521276 C1130.83045,29.328812 1279.08318,17.607883 1439,40.1656806 L1439,120 C1271.17211,77.9435312 1140.17211,55.1609071 1046,51.6521276 Z" opacity="0.200000003"></path>
+            </g>
+          </g>
+        </g>
+      </g>
+    </svg>
+    <section class="container mx-auto text-center py-6 mb-12">
+      <h2 class="w-full my-2 text-5xl font-bold leading-tight text-center text-white">
+        Cuando me necesites llamame 
+      </h2>
+      <div class="w-full mb-4">
+        <div class="h-1 mx-auto bg-white w-1/6 opacity-25 my-0 py-0 rounded-t"></div>
+      </div>
+      <h3 class="my-4 text-3xl leading-tight">
+        Hecho con amor por el mejor ingeniero del mundo para su princesa linda &#10084!
+      </h3>
+     
+    </section>
+    <!--Footer-->
+      
+    <!-- jQuery if you need it
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  -->
+    <script src="script.js"></script>
+  </body>
+</html>
