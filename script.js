@@ -319,6 +319,339 @@ function hideHappyBearModal() {
   }
 }
 
+// Cute effects for pear game WITH photos
+function showCuteEffects() {
+  const imageContainer = document.getElementById('imageContainer');
+  const randomImage = document.getElementById('randomImage');
+
+  // Clear any existing content
+  imageContainer.innerHTML = '';
+
+  // Create combined container with photo background and effects overlay
+  const combinedContainer = document.createElement('div');
+  combinedContainer.id = 'combinedEffects';
+  combinedContainer.style.cssText = `
+    position: relative;
+    width: 100%;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    border-radius: 15px;
+  `;
+
+  // Add the photo as background
+  const imgSrc = getRandomImage();
+  const photoBackground = document.createElement('img');
+  photoBackground.src = imgSrc;
+  photoBackground.style.cssText = `
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 15px;
+    z-index: 1;
+  `;
+
+  // Add a subtle overlay to make effects more visible
+  const overlay = document.createElement('div');
+  overlay.style.cssText = `
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(255, 230, 240, 0.3), rgba(230, 243, 255, 0.3), rgba(240, 230, 255, 0.3));
+    border-radius: 15px;
+    z-index: 2;
+  `;
+
+  // Create effects container (overlay on photo)
+  const effectsContainer = document.createElement('div');
+  effectsContainer.id = 'cuteEffects';
+  effectsContainer.style.cssText = `
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 3;
+    pointer-events: none;
+  `;
+
+  // Randomly choose an effect
+  const effects = ['hearts', 'butterflies', 'flowers', 'stars', 'rainbow'];
+  const randomEffect = effects[Math.floor(Math.random() * effects.length)];
+
+  switch (randomEffect) {
+    case 'hearts':
+      createHeartBloomEffect(effectsContainer);
+      break;
+    case 'butterflies':
+      createButterflyEffect(effectsContainer);
+      break;
+    case 'flowers':
+      createFlowerBloomEffect(effectsContainer);
+      break;
+    case 'stars':
+      createStarShowerEffect(effectsContainer);
+      break;
+    case 'rainbow':
+      createRainbowEffect(effectsContainer);
+      break;
+  }
+
+  // Assemble the combined display
+  combinedContainer.appendChild(photoBackground);
+  combinedContainer.appendChild(overlay);
+  combinedContainer.appendChild(effectsContainer);
+  imageContainer.appendChild(combinedContainer);
+  imageContainer.classList.remove('hidden');
+
+  // Handle image loading
+  photoBackground.onload = () => {
+    // Image loaded successfully
+    console.log('Photo loaded successfully');
+  };
+
+  photoBackground.onerror = () => {
+    console.error('Failed to load image:', imgSrc);
+    // Fallback: show effects without photo
+    photoBackground.style.display = 'none';
+    overlay.style.background = 'linear-gradient(135deg, #ffe6f0, #e6f3ff, #f0e6ff)';
+  };
+
+  // Remove effects after animation
+  setTimeout(() => {
+    if (combinedContainer.parentNode) {
+      combinedContainer.remove();
+    }
+  }, 8000);
+}
+
+function createHeartBloomEffect(container) {
+  // Create multiple hearts blooming from center
+  for (let i = 0; i < 12; i++) {
+    setTimeout(() => {
+      const heart = document.createElement('div');
+      heart.innerHTML = '💖';
+      heart.style.cssText = `
+        position: absolute;
+        font-size: 30px;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%) scale(0);
+        animation: heartBloom 2s ease-out forwards;
+        animation-delay: ${i * 0.1}s;
+      `;
+      container.appendChild(heart);
+    }, i * 100);
+  }
+
+  // Add floating smaller hearts
+  for (let i = 0; i < 8; i++) {
+    const smallHeart = document.createElement('div');
+    smallHeart.innerHTML = ['💕', '💓', '💗', '💘'][Math.floor(Math.random() * 4)];
+    smallHeart.style.cssText = `
+      position: absolute;
+      font-size: 20px;
+      left: ${20 + Math.random() * 60}%;
+      top: ${20 + Math.random() * 60}%;
+      animation: floatAround 4s ease-in-out infinite;
+      animation-delay: ${Math.random() * 2}s;
+      opacity: 0.8;
+    `;
+    container.appendChild(smallHeart);
+  }
+}
+
+function createButterflyEffect(container) {
+  // Create butterflies flying around
+  const butterflies = ['🦋', '🐛', '🌸', '🌺', '🌻'];
+
+  for (let i = 0; i < 6; i++) {
+    const butterfly = document.createElement('div');
+    butterfly.innerHTML = butterflies[Math.floor(Math.random() * butterflies.length)];
+    butterfly.style.cssText = `
+      position: absolute;
+      font-size: 25px;
+      left: ${10 + Math.random() * 80}%;
+      top: ${10 + Math.random() * 80}%;
+      animation: butterflyFlight 6s ease-in-out infinite;
+      animation-delay: ${Math.random() * 3}s;
+    `;
+    container.appendChild(butterfly);
+  }
+
+  // Add flower background
+  for (let i = 0; i < 5; i++) {
+    const flower = document.createElement('div');
+    flower.innerHTML = ['🌸', '🌺', '🌻', '🌷', '🌹'][Math.floor(Math.random() * 5)];
+    flower.style.cssText = `
+      position: absolute;
+      font-size: 18px;
+      left: ${15 + Math.random() * 70}%;
+      bottom: 10px;
+      opacity: 0.6;
+      animation: gentleSway 3s ease-in-out infinite;
+      animation-delay: ${Math.random() * 2}s;
+    `;
+    container.appendChild(flower);
+  }
+}
+
+function createFlowerBloomEffect(container) {
+  // Create flower blooming animation
+  const flower = document.createElement('div');
+  flower.innerHTML = '🌸';
+  flower.style.cssText = `
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 20px;
+    animation: flowerBloom 3s ease-out forwards;
+  `;
+  container.appendChild(flower);
+
+  // Add petals
+  for (let i = 0; i < 8; i++) {
+    setTimeout(() => {
+      const petal = document.createElement('div');
+      petal.innerHTML = '🌸';
+      petal.style.cssText = `
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 15px;
+        animation: petalFly 2s ease-out forwards;
+        animation-delay: ${i * 0.1}s;
+      `;
+      container.appendChild(petal);
+    }, i * 200);
+  }
+
+  // Add bees
+  for (let i = 0; i < 3; i++) {
+    const bee = document.createElement('div');
+    bee.innerHTML = '🐝';
+    bee.style.cssText = `
+      position: absolute;
+      font-size: 16px;
+      left: ${20 + Math.random() * 60}%;
+      top: ${20 + Math.random() * 60}%;
+      animation: beeBuzz 4s ease-in-out infinite;
+      animation-delay: ${Math.random() * 2}s;
+    `;
+    container.appendChild(bee);
+  }
+}
+
+function createStarShowerEffect(container) {
+  // Create star shower
+  for (let i = 0; i < 15; i++) {
+    setTimeout(() => {
+      const star = document.createElement('div');
+      star.innerHTML = ['⭐', '✨', '🌟', '💫'][Math.floor(Math.random() * 4)];
+      star.style.cssText = `
+        position: absolute;
+        font-size: 20px;
+        left: ${Math.random() * 100}%;
+        top: -20px;
+        animation: starFall 3s linear forwards;
+        animation-delay: ${Math.random() * 2}s;
+      `;
+      container.appendChild(star);
+    }, i * 200);
+  }
+
+  // Add moon
+  const moon = document.createElement('div');
+  moon.innerHTML = '🌙';
+  moon.style.cssText = `
+    position: absolute;
+    font-size: 30px;
+    right: 20px;
+    top: 20px;
+    animation: gentleGlow 4s ease-in-out infinite;
+  `;
+  container.appendChild(moon);
+
+  // Add clouds
+  for (let i = 0; i < 3; i++) {
+    const cloud = document.createElement('div');
+    cloud.innerHTML = '☁️';
+    cloud.style.cssText = `
+      position: absolute;
+      font-size: 18px;
+      left: ${10 + i * 30}%;
+      top: ${15 + Math.random() * 20}%;
+      animation: cloudDrift 8s ease-in-out infinite;
+      animation-delay: ${i * 1.5}s;
+      opacity: 0.7;
+    `;
+    container.appendChild(cloud);
+  }
+}
+
+function createRainbowEffect(container) {
+  // Create rainbow arc
+  const rainbow = document.createElement('div');
+  rainbow.style.cssText = `
+    position: absolute;
+    left: 50%;
+    top: 60%;
+    transform: translateX(-50%);
+    width: 200px;
+    height: 100px;
+    border-radius: 50% 50% 50% 50% / 100% 100% 0% 0%;
+    background: linear-gradient(to top, #ff0000, #ff8000, #ffff00, #00ff00, #0080ff, #8000ff);
+    animation: rainbowAppear 2s ease-out forwards;
+    opacity: 0;
+  `;
+  container.appendChild(rainbow);
+
+  // Add rainbow text
+  setTimeout(() => {
+    const text = document.createElement('div');
+    text.innerHTML = '¡Magia del Amor! 🌈';
+    text.style.cssText = `
+      position: absolute;
+      left: 50%;
+      top: 30%;
+      transform: translateX(-50%);
+      font-size: 18px;
+      font-weight: bold;
+      color: #ff69b4;
+      text-shadow: 2px 2px 4px rgba(255, 105, 180, 0.3);
+      animation: textGlow 2s ease-out forwards;
+      opacity: 0;
+    `;
+    container.appendChild(text);
+  }, 1000);
+
+  // Add floating unicorns
+  for (let i = 0; i < 4; i++) {
+    const unicorn = document.createElement('div');
+    unicorn.innerHTML = '🦄';
+    unicorn.style.cssText = `
+      position: absolute;
+      font-size: 20px;
+      left: ${15 + Math.random() * 70}%;
+      top: ${20 + Math.random() * 50}%;
+      animation: unicornFloat 5s ease-in-out infinite;
+      animation-delay: ${Math.random() * 3}s;
+      opacity: 0.8;
+    `;
+    container.appendChild(unicorn);
+  }
+}
+
 // Game logic
 document.addEventListener('DOMContentLoaded', function() {
   const yesBtn = document.getElementById('yesBtn');
@@ -2074,40 +2407,134 @@ document.addEventListener('DOMContentLoaded', function() {
           princessY = 180 - Math.sin(frame * 0.1) * 10;
         }
 
-        // Draw King with enhanced details
+        // Draw King with realistic details
+        // King body (robe)
         this.victoryCtx.fillStyle = '#4B0082';
-        this.victoryCtx.fillRect(kingX, kingY, 30, 30);
+        this.victoryCtx.fillRect(kingX + 8, kingY + 15, 14, 20);
 
-        // King crown
+        // King head
+        this.victoryCtx.fillStyle = '#FFE4B5';
+        this.victoryCtx.beginPath();
+        this.victoryCtx.arc(kingX + 15, kingY + 8, 7, 0, Math.PI * 2);
+        this.victoryCtx.fill();
+
+        // King crown (more detailed)
         this.victoryCtx.fillStyle = '#FFD700';
-        this.victoryCtx.fillRect(kingX + 5, kingY - 5, 20, 8);
-        this.victoryCtx.fillRect(kingX + 3, kingY - 8, 6, 5);
-        this.victoryCtx.fillRect(kingX + 9, kingY - 10, 4, 5);
-        this.victoryCtx.fillRect(kingX + 17, kingY - 10, 4, 5);
-        this.victoryCtx.fillRect(kingX + 21, kingY - 8, 6, 5);
+        this.victoryCtx.fillRect(kingX + 10, kingY + 1, 10, 4);
+        // Crown points
+        this.victoryCtx.fillRect(kingX + 9, kingY - 1, 3, 4);
+        this.victoryCtx.fillRect(kingX + 13, kingY - 2, 4, 5);
+        this.victoryCtx.fillRect(kingX + 18, kingY - 1, 3, 4);
+        // Crown jewels
+        this.victoryCtx.fillStyle = '#FF1493';
+        this.victoryCtx.fillRect(kingX + 10, kingY + 2, 2, 2);
+        this.victoryCtx.fillRect(kingX + 16, kingY + 2, 2, 2);
 
-        // King sword
+        // King eyes
+        this.victoryCtx.fillStyle = '#000';
+        this.victoryCtx.fillRect(kingX + 12, kingY + 6, 2, 2);
+        this.victoryCtx.fillRect(kingX + 16, kingY + 6, 2, 2);
+
+        // King smile
+        this.victoryCtx.strokeStyle = '#000';
+        this.victoryCtx.lineWidth = 1;
+        this.victoryCtx.beginPath();
+        this.victoryCtx.arc(kingX + 15, kingY + 9, 3, 0, Math.PI);
+        this.victoryCtx.stroke();
+
+        // King arms
+        this.victoryCtx.fillStyle = '#FFE4B5';
+        this.victoryCtx.fillRect(kingX + 5, kingY + 18, 4, 8);
+        this.victoryCtx.fillRect(kingX + 21, kingY + 18, 4, 8);
+
+        // King legs
+        this.victoryCtx.fillStyle = '#4B0082';
+        this.victoryCtx.fillRect(kingX + 10, kingY + 35, 4, 8);
+        this.victoryCtx.fillRect(kingX + 16, kingY + 35, 4, 8);
+
+        // King shoes
+        this.victoryCtx.fillStyle = '#8B4513';
+        this.victoryCtx.fillRect(kingX + 8, kingY + 40, 6, 4);
+        this.victoryCtx.fillRect(kingX + 16, kingY + 40, 6, 4);
+
+        // King sword (more detailed)
         this.victoryCtx.fillStyle = '#C0C0C0';
-        this.victoryCtx.fillRect(kingX + 32, kingY + 5, 3, 20);
+        this.victoryCtx.fillRect(kingX + 25, kingY + 15, 2, 18);
         this.victoryCtx.fillStyle = '#FFD700';
-        this.victoryCtx.fillRect(kingX + 30, kingY, 7, 6);
+        this.victoryCtx.fillRect(kingX + 23, kingY + 12, 6, 5);
+        // Sword guard
+        this.victoryCtx.fillRect(kingX + 24, kingY + 17, 4, 2);
 
-        // Draw Princess with enhanced details
+        // Draw Princess with realistic details
+        // Princess dress (main body)
         this.victoryCtx.fillStyle = '#FF69B4';
-        this.victoryCtx.fillRect(princessX, princessY, 30, 30);
+        this.victoryCtx.fillRect(princessX + 8, princessY + 15, 14, 25);
 
-        // Princess crown
+        // Princess head
+        this.victoryCtx.fillStyle = '#FFE4B5';
+        this.victoryCtx.beginPath();
+        this.victoryCtx.arc(princessX + 15, princessY + 8, 7, 0, Math.PI * 2);
+        this.victoryCtx.fill();
+
+        // Princess crown (more elegant)
         this.victoryCtx.fillStyle = '#FFD700';
-        this.victoryCtx.fillRect(princessX + 5, princessY - 5, 20, 8);
-        this.victoryCtx.fillRect(princessX + 3, princessY - 8, 6, 5);
-        this.victoryCtx.fillRect(princessX + 9, princessY - 10, 4, 5);
-        this.victoryCtx.fillRect(princessX + 17, princessY - 10, 4, 5);
-        this.victoryCtx.fillRect(princessX + 21, princessY - 8, 6, 5);
+        this.victoryCtx.fillRect(princessX + 10, princessY + 1, 10, 4);
+        // Crown points (more delicate)
+        this.victoryCtx.fillRect(princessX + 9, princessY - 1, 3, 4);
+        this.victoryCtx.fillRect(princessX + 13, princessY - 3, 4, 6);
+        this.victoryCtx.fillRect(princessX + 18, princessY - 1, 3, 4);
+        // Crown jewels (pink diamonds)
+        this.victoryCtx.fillStyle = '#FF1493';
+        this.victoryCtx.fillRect(princessX + 10, princessY + 2, 2, 2);
+        this.victoryCtx.fillRect(princessX + 16, princessY + 2, 2, 2);
+        // Center jewel
+        this.victoryCtx.fillRect(princessX + 14, princessY - 1, 2, 3);
 
-        // Princess dress details
+        // Princess eyes
+        this.victoryCtx.fillStyle = '#000';
+        this.victoryCtx.fillRect(princessX + 12, princessY + 6, 2, 2);
+        this.victoryCtx.fillRect(princessX + 16, princessY + 6, 2, 2);
+        // Eye highlights
+        this.victoryCtx.fillStyle = '#fff';
+        this.victoryCtx.fillRect(princessX + 12, princessY + 6, 1, 1);
+        this.victoryCtx.fillRect(princessX + 16, princessY + 6, 1, 1);
+
+        // Princess smile
+        this.victoryCtx.strokeStyle = '#000';
+        this.victoryCtx.lineWidth = 1;
+        this.victoryCtx.beginPath();
+        this.victoryCtx.arc(princessX + 15, princessY + 9, 3, 0, Math.PI);
+        this.victoryCtx.stroke();
+
+        // Princess hair (long and flowing)
+        this.victoryCtx.fillStyle = '#8B4513';
+        this.victoryCtx.fillRect(princessX + 8, princessY + 2, 14, 8);
+        // Hair strands
+        this.victoryCtx.fillRect(princessX + 6, princessY + 5, 4, 12);
+        this.victoryCtx.fillRect(princessX + 20, princessY + 5, 4, 12);
+
+        // Princess arms
+        this.victoryCtx.fillStyle = '#FFE4B5';
+        this.victoryCtx.fillRect(princessX + 5, princessY + 18, 4, 8);
+        this.victoryCtx.fillRect(princessX + 21, princessY + 18, 4, 8);
+
+        // Princess dress details (fluffy)
         this.victoryCtx.fillStyle = '#FFB6C1';
         this.victoryCtx.fillRect(princessX + 2, princessY + 30, 8, 10);
         this.victoryCtx.fillRect(princessX + 20, princessY + 30, 8, 10);
+        // Dress ruffles
+        this.victoryCtx.fillRect(princessX + 6, princessY + 35, 4, 6);
+        this.victoryCtx.fillRect(princessX + 20, princessY + 35, 4, 6);
+
+        // Princess legs
+        this.victoryCtx.fillStyle = '#FFE4B5';
+        this.victoryCtx.fillRect(princessX + 10, princessY + 40, 4, 8);
+        this.victoryCtx.fillRect(princessX + 16, princessY + 40, 4, 8);
+
+        // Princess shoes
+        this.victoryCtx.fillStyle = '#FF1493';
+        this.victoryCtx.fillRect(princessX + 8, princessY + 45, 6, 4);
+        this.victoryCtx.fillRect(princessX + 16, princessY + 45, 6, 4);
 
         // Victory text with animation
         this.victoryCtx.fillStyle = '#000';
