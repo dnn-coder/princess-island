@@ -403,8 +403,18 @@ section.bg-gradient-to-br.from-purple-200.to-pink-300 {
   /* Lower the game canvas to show more sky */
   .game-container,
   .game-container > div {
-    min-height: 6vh !important;
-    height: 6vh !important;
+    min-height: 2vh !important;
+    height: 2vh !important;
+    margin-top: 0px !important; /* Adjust canvas position */
+  }
+}
+
+/* Desktop game canvas adjustments */
+@media (min-width: 769px) {
+  .game-container,
+  .game-container > div {
+    min-height: 80vh !important;
+    height: 80vh !important;
     margin-top: 0px !important; /* Adjust canvas position */
   }
 
