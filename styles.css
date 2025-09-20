@@ -395,16 +395,16 @@ section.bg-gradient-to-br.from-purple-200.to-pink-300 {
   /* Lower the game canvas to show more sky */
   .game-container,
   .game-container > div {
-    min-height: 75vh !important;
-    height: 75vh !important;
-    margin-top: -30px !important; /* Lower the canvas to show more sky */
+    min-height: 85vh !important;
+    height: 85vh !important;
+    margin-top: -80px !important; /* Lower the canvas even more to show more sky and reduce bottom space */
   }
 
   /* Ensure the game section takes full viewport height on mobile */
   section.bg-gradient-to-br.from-purple-200.to-pink-300 {
     min-height: 100vh !important;
-    padding-top: 0.5rem !important;
-    padding-bottom: 0.5rem !important;
+    padding-top: 0.25rem !important;
+    padding-bottom: 0.25rem !important;
   }
 
   /* Ensure start screen covers entire canvas area */
@@ -467,7 +467,7 @@ section.bg-gradient-to-br.from-purple-200.to-pink-300 {
   #gameCanvas {
     width: 100% !important;
     height: 100% !important;
-    min-height: 75vh !important;
+    min-height: 85vh !important;
     object-fit: contain !important;
   }
 

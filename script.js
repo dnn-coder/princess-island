@@ -2361,6 +2361,11 @@ document.addEventListener('DOMContentLoaded', function() {
       const animate = () => {
         if (!this.victoryCtx) return;
 
+        // Play victory music at the start of animation
+        if (frame === 0) {
+          this.playVictoryMusic();
+        }
+
         this.victoryCtx.clearRect(0, 0, 400, 300);
 
         // Enhanced castle background with towers
@@ -2407,134 +2412,138 @@ document.addEventListener('DOMContentLoaded', function() {
           princessY = 180 - Math.sin(frame * 0.1) * 10;
         }
 
-        // Draw King with realistic details
+        // Draw King with realistic details (bigger size)
+        const kingScale = 1.5; // Make king 50% bigger
+
         // King body (robe)
         this.victoryCtx.fillStyle = '#4B0082';
-        this.victoryCtx.fillRect(kingX + 8, kingY + 15, 14, 20);
+        this.victoryCtx.fillRect(kingX + 8 * kingScale, kingY + 15 * kingScale, 14 * kingScale, 20 * kingScale);
 
         // King head
         this.victoryCtx.fillStyle = '#FFE4B5';
         this.victoryCtx.beginPath();
-        this.victoryCtx.arc(kingX + 15, kingY + 8, 7, 0, Math.PI * 2);
+        this.victoryCtx.arc(kingX + 15 * kingScale, kingY + 8 * kingScale, 7 * kingScale, 0, Math.PI * 2);
         this.victoryCtx.fill();
 
         // King crown (more detailed)
         this.victoryCtx.fillStyle = '#FFD700';
-        this.victoryCtx.fillRect(kingX + 10, kingY + 1, 10, 4);
+        this.victoryCtx.fillRect(kingX + 10 * kingScale, kingY + 1 * kingScale, 10 * kingScale, 4 * kingScale);
         // Crown points
-        this.victoryCtx.fillRect(kingX + 9, kingY - 1, 3, 4);
-        this.victoryCtx.fillRect(kingX + 13, kingY - 2, 4, 5);
-        this.victoryCtx.fillRect(kingX + 18, kingY - 1, 3, 4);
+        this.victoryCtx.fillRect(kingX + 9 * kingScale, kingY - 1 * kingScale, 3 * kingScale, 4 * kingScale);
+        this.victoryCtx.fillRect(kingX + 13 * kingScale, kingY - 2 * kingScale, 4 * kingScale, 5 * kingScale);
+        this.victoryCtx.fillRect(kingX + 18 * kingScale, kingY - 1 * kingScale, 3 * kingScale, 4 * kingScale);
         // Crown jewels
         this.victoryCtx.fillStyle = '#FF1493';
-        this.victoryCtx.fillRect(kingX + 10, kingY + 2, 2, 2);
-        this.victoryCtx.fillRect(kingX + 16, kingY + 2, 2, 2);
+        this.victoryCtx.fillRect(kingX + 10 * kingScale, kingY + 2 * kingScale, 2 * kingScale, 2 * kingScale);
+        this.victoryCtx.fillRect(kingX + 16 * kingScale, kingY + 2 * kingScale, 2 * kingScale, 2 * kingScale);
 
         // King eyes
         this.victoryCtx.fillStyle = '#000';
-        this.victoryCtx.fillRect(kingX + 12, kingY + 6, 2, 2);
-        this.victoryCtx.fillRect(kingX + 16, kingY + 6, 2, 2);
+        this.victoryCtx.fillRect(kingX + 12 * kingScale, kingY + 6 * kingScale, 2 * kingScale, 2 * kingScale);
+        this.victoryCtx.fillRect(kingX + 16 * kingScale, kingY + 6 * kingScale, 2 * kingScale, 2 * kingScale);
 
         // King smile
         this.victoryCtx.strokeStyle = '#000';
-        this.victoryCtx.lineWidth = 1;
+        this.victoryCtx.lineWidth = 1 * kingScale;
         this.victoryCtx.beginPath();
-        this.victoryCtx.arc(kingX + 15, kingY + 9, 3, 0, Math.PI);
+        this.victoryCtx.arc(kingX + 15 * kingScale, kingY + 9 * kingScale, 3 * kingScale, 0, Math.PI);
         this.victoryCtx.stroke();
 
         // King arms
         this.victoryCtx.fillStyle = '#FFE4B5';
-        this.victoryCtx.fillRect(kingX + 5, kingY + 18, 4, 8);
-        this.victoryCtx.fillRect(kingX + 21, kingY + 18, 4, 8);
+        this.victoryCtx.fillRect(kingX + 5 * kingScale, kingY + 18 * kingScale, 4 * kingScale, 8 * kingScale);
+        this.victoryCtx.fillRect(kingX + 21 * kingScale, kingY + 18 * kingScale, 4 * kingScale, 8 * kingScale);
 
         // King legs
         this.victoryCtx.fillStyle = '#4B0082';
-        this.victoryCtx.fillRect(kingX + 10, kingY + 35, 4, 8);
-        this.victoryCtx.fillRect(kingX + 16, kingY + 35, 4, 8);
+        this.victoryCtx.fillRect(kingX + 10 * kingScale, kingY + 35 * kingScale, 4 * kingScale, 8 * kingScale);
+        this.victoryCtx.fillRect(kingX + 16 * kingScale, kingY + 35 * kingScale, 4 * kingScale, 8 * kingScale);
 
         // King shoes
         this.victoryCtx.fillStyle = '#8B4513';
-        this.victoryCtx.fillRect(kingX + 8, kingY + 40, 6, 4);
-        this.victoryCtx.fillRect(kingX + 16, kingY + 40, 6, 4);
+        this.victoryCtx.fillRect(kingX + 8 * kingScale, kingY + 40 * kingScale, 6 * kingScale, 4 * kingScale);
+        this.victoryCtx.fillRect(kingX + 16 * kingScale, kingY + 40 * kingScale, 6 * kingScale, 4 * kingScale);
 
         // King sword (more detailed)
         this.victoryCtx.fillStyle = '#C0C0C0';
-        this.victoryCtx.fillRect(kingX + 25, kingY + 15, 2, 18);
+        this.victoryCtx.fillRect(kingX + 25 * kingScale, kingY + 15 * kingScale, 2 * kingScale, 18 * kingScale);
         this.victoryCtx.fillStyle = '#FFD700';
-        this.victoryCtx.fillRect(kingX + 23, kingY + 12, 6, 5);
+        this.victoryCtx.fillRect(kingX + 23 * kingScale, kingY + 12 * kingScale, 6 * kingScale, 5 * kingScale);
         // Sword guard
-        this.victoryCtx.fillRect(kingX + 24, kingY + 17, 4, 2);
+        this.victoryCtx.fillRect(kingX + 24 * kingScale, kingY + 17 * kingScale, 4 * kingScale, 2 * kingScale);
 
-        // Draw Princess with realistic details
+        // Draw Princess with realistic details (bigger size)
+        const princessScale = 1.5; // Make princess 50% bigger
+
         // Princess dress (main body)
         this.victoryCtx.fillStyle = '#FF69B4';
-        this.victoryCtx.fillRect(princessX + 8, princessY + 15, 14, 25);
+        this.victoryCtx.fillRect(princessX + 8 * princessScale, princessY + 15 * princessScale, 14 * princessScale, 25 * princessScale);
 
         // Princess head
         this.victoryCtx.fillStyle = '#FFE4B5';
         this.victoryCtx.beginPath();
-        this.victoryCtx.arc(princessX + 15, princessY + 8, 7, 0, Math.PI * 2);
+        this.victoryCtx.arc(princessX + 15 * princessScale, princessY + 8 * princessScale, 7 * princessScale, 0, Math.PI * 2);
         this.victoryCtx.fill();
 
         // Princess crown (more elegant)
         this.victoryCtx.fillStyle = '#FFD700';
-        this.victoryCtx.fillRect(princessX + 10, princessY + 1, 10, 4);
+        this.victoryCtx.fillRect(princessX + 10 * princessScale, princessY + 1 * princessScale, 10 * princessScale, 4 * princessScale);
         // Crown points (more delicate)
-        this.victoryCtx.fillRect(princessX + 9, princessY - 1, 3, 4);
-        this.victoryCtx.fillRect(princessX + 13, princessY - 3, 4, 6);
-        this.victoryCtx.fillRect(princessX + 18, princessY - 1, 3, 4);
+        this.victoryCtx.fillRect(princessX + 9 * princessScale, princessY - 1 * princessScale, 3 * princessScale, 4 * princessScale);
+        this.victoryCtx.fillRect(princessX + 13 * princessScale, princessY - 3 * princessScale, 4 * princessScale, 6 * princessScale);
+        this.victoryCtx.fillRect(princessX + 18 * princessScale, princessY - 1 * princessScale, 3 * princessScale, 4 * princessScale);
         // Crown jewels (pink diamonds)
         this.victoryCtx.fillStyle = '#FF1493';
-        this.victoryCtx.fillRect(princessX + 10, princessY + 2, 2, 2);
-        this.victoryCtx.fillRect(princessX + 16, princessY + 2, 2, 2);
+        this.victoryCtx.fillRect(princessX + 10 * princessScale, princessY + 2 * princessScale, 2 * princessScale, 2 * princessScale);
+        this.victoryCtx.fillRect(princessX + 16 * princessScale, princessY + 2 * princessScale, 2 * princessScale, 2 * princessScale);
         // Center jewel
-        this.victoryCtx.fillRect(princessX + 14, princessY - 1, 2, 3);
+        this.victoryCtx.fillRect(princessX + 14 * princessScale, princessY - 1 * princessScale, 2 * princessScale, 3 * princessScale);
 
         // Princess eyes
         this.victoryCtx.fillStyle = '#000';
-        this.victoryCtx.fillRect(princessX + 12, princessY + 6, 2, 2);
-        this.victoryCtx.fillRect(princessX + 16, princessY + 6, 2, 2);
+        this.victoryCtx.fillRect(princessX + 12 * princessScale, princessY + 6 * princessScale, 2 * princessScale, 2 * princessScale);
+        this.victoryCtx.fillRect(princessX + 16 * princessScale, princessY + 6 * princessScale, 2 * princessScale, 2 * princessScale);
         // Eye highlights
         this.victoryCtx.fillStyle = '#fff';
-        this.victoryCtx.fillRect(princessX + 12, princessY + 6, 1, 1);
-        this.victoryCtx.fillRect(princessX + 16, princessY + 6, 1, 1);
+        this.victoryCtx.fillRect(princessX + 12 * princessScale, princessY + 6 * princessScale, 1 * princessScale, 1 * princessScale);
+        this.victoryCtx.fillRect(princessX + 16 * princessScale, princessY + 6 * princessScale, 1 * princessScale, 1 * princessScale);
 
         // Princess smile
         this.victoryCtx.strokeStyle = '#000';
-        this.victoryCtx.lineWidth = 1;
+        this.victoryCtx.lineWidth = 1 * princessScale;
         this.victoryCtx.beginPath();
-        this.victoryCtx.arc(princessX + 15, princessY + 9, 3, 0, Math.PI);
+        this.victoryCtx.arc(princessX + 15 * princessScale, princessY + 9 * princessScale, 3 * princessScale, 0, Math.PI);
         this.victoryCtx.stroke();
 
         // Princess hair (long and flowing)
         this.victoryCtx.fillStyle = '#8B4513';
-        this.victoryCtx.fillRect(princessX + 8, princessY + 2, 14, 8);
+        this.victoryCtx.fillRect(princessX + 8 * princessScale, princessY + 2 * princessScale, 14 * princessScale, 8 * princessScale);
         // Hair strands
-        this.victoryCtx.fillRect(princessX + 6, princessY + 5, 4, 12);
-        this.victoryCtx.fillRect(princessX + 20, princessY + 5, 4, 12);
+        this.victoryCtx.fillRect(princessX + 6 * princessScale, princessY + 5 * princessScale, 4 * princessScale, 12 * princessScale);
+        this.victoryCtx.fillRect(princessX + 20 * princessScale, princessY + 5 * princessScale, 4 * princessScale, 12 * princessScale);
 
         // Princess arms
         this.victoryCtx.fillStyle = '#FFE4B5';
-        this.victoryCtx.fillRect(princessX + 5, princessY + 18, 4, 8);
-        this.victoryCtx.fillRect(princessX + 21, princessY + 18, 4, 8);
+        this.victoryCtx.fillRect(princessX + 5 * princessScale, princessY + 18 * princessScale, 4 * princessScale, 8 * princessScale);
+        this.victoryCtx.fillRect(princessX + 21 * princessScale, princessY + 18 * princessScale, 4 * princessScale, 8 * princessScale);
 
         // Princess dress details (fluffy)
         this.victoryCtx.fillStyle = '#FFB6C1';
-        this.victoryCtx.fillRect(princessX + 2, princessY + 30, 8, 10);
-        this.victoryCtx.fillRect(princessX + 20, princessY + 30, 8, 10);
+        this.victoryCtx.fillRect(princessX + 2 * princessScale, princessY + 30 * princessScale, 8 * princessScale, 10 * princessScale);
+        this.victoryCtx.fillRect(princessX + 20 * princessScale, princessY + 30 * princessScale, 8 * princessScale, 10 * princessScale);
         // Dress ruffles
-        this.victoryCtx.fillRect(princessX + 6, princessY + 35, 4, 6);
-        this.victoryCtx.fillRect(princessX + 20, princessY + 35, 4, 6);
+        this.victoryCtx.fillRect(princessX + 6 * princessScale, princessY + 35 * princessScale, 4 * princessScale, 6 * princessScale);
+        this.victoryCtx.fillRect(princessX + 20 * princessScale, princessY + 35 * princessScale, 4 * princessScale, 6 * princessScale);
 
         // Princess legs
         this.victoryCtx.fillStyle = '#FFE4B5';
-        this.victoryCtx.fillRect(princessX + 10, princessY + 40, 4, 8);
-        this.victoryCtx.fillRect(princessX + 16, princessY + 40, 4, 8);
+        this.victoryCtx.fillRect(princessX + 10 * princessScale, princessY + 40 * princessScale, 4 * princessScale, 8 * princessScale);
+        this.victoryCtx.fillRect(princessX + 16 * princessScale, princessY + 40 * princessScale, 4 * princessScale, 8 * princessScale);
 
         // Princess shoes
         this.victoryCtx.fillStyle = '#FF1493';
-        this.victoryCtx.fillRect(princessX + 8, princessY + 45, 6, 4);
-        this.victoryCtx.fillRect(princessX + 16, princessY + 45, 6, 4);
+        this.victoryCtx.fillRect(princessX + 8 * princessScale, princessY + 45 * princessScale, 6 * princessScale, 4 * princessScale);
+        this.victoryCtx.fillRect(princessX + 16 * princessScale, princessY + 45 * princessScale, 6 * princessScale, 4 * princessScale);
 
         // Victory text with animation
         this.victoryCtx.fillStyle = '#000';
@@ -2575,8 +2584,7 @@ document.addEventListener('DOMContentLoaded', function() {
         if (frame < 400) {
           requestAnimationFrame(animate);
         } else {
-          // Play victory music when animation ends
-          this.playVictoryMusic();
+          // Animation complete
         }
       };
       animate();
