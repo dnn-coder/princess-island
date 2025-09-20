@@ -392,18 +392,19 @@ section.bg-gradient-to-br.from-purple-200.to-pink-300 {
 
 /* Mobile-specific game canvas adjustments */
 @media (max-width: 768px) {
-  /* Ensure game canvas container takes full available height */
+  /* Lower the game canvas to show more sky */
   .game-container,
   .game-container > div {
-    min-height: 70vh !important;
-    height: 70vh !important;
+    min-height: 75vh !important;
+    height: 75vh !important;
+    margin-top: -30px !important; /* Lower the canvas to show more sky */
   }
 
   /* Ensure the game section takes full viewport height on mobile */
   section.bg-gradient-to-br.from-purple-200.to-pink-300 {
     min-height: 100vh !important;
-    padding-top: 1rem !important;
-    padding-bottom: 1rem !important;
+    padding-top: 0.5rem !important;
+    padding-bottom: 0.5rem !important;
   }
 
   /* Ensure start screen covers entire canvas area */
@@ -452,6 +453,8 @@ section.bg-gradient-to-br.from-purple-200.to-pink-300 {
     letter-spacing: 1px !important;
     position: relative !important;
     z-index: 35 !important;
+    touch-action: manipulation !important; /* Improve touch responsiveness */
+    -webkit-tap-highlight-color: rgba(255, 255, 255, 0.2) !important;
   }
 
   /* Ensure button is always clickable */
@@ -464,8 +467,42 @@ section.bg-gradient-to-br.from-purple-200.to-pink-300 {
   #gameCanvas {
     width: 100% !important;
     height: 100% !important;
-    min-height: 70vh !important;
+    min-height: 75vh !important;
     object-fit: contain !important;
+  }
+
+  /* Improve control button responsiveness */
+  #leftBtn, #rightBtn, #jumpBtn {
+    touch-action: manipulation !important;
+    -webkit-tap-highlight-color: rgba(255, 255, 255, 0.2) !important;
+    user-select: none !important;
+    -webkit-user-select: none !important;
+    -webkit-touch-callout: none !important;
+  }
+
+  #leftBtnMobile, #rightBtnMobile, #jumpBtnMobile {
+    touch-action: manipulation !important;
+    -webkit-tap-highlight-color: rgba(255, 255, 255, 0.2) !important;
+    user-select: none !important;
+    -webkit-user-select: none !important;
+    -webkit-touch-callout: none !important;
+  }
+
+  /* Make control buttons more responsive */
+  #leftBtn:active, #rightBtn:active, #jumpBtn:active,
+  #leftBtnMobile:active, #rightBtnMobile:active, #jumpBtnMobile:active {
+    transform: scale(0.9) !important;
+    transition: transform 0.1s ease !important;
+  }
+
+  /* Improve jump button specific responsiveness */
+  #jumpBtn, #jumpBtnMobile {
+    transition: all 0.1s ease !important;
+  }
+
+  #jumpBtn:active, #jumpBtnMobile:active {
+    background-color: #be185d !important; /* Darker pink for feedback */
+    transform: scale(0.9) !important;
   }
 }
 
