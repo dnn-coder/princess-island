@@ -427,7 +427,7 @@
     </section>
 
     <!-- King Rescue Adventure Game Section -->
-    <section class="bg-gradient-to-br from-purple-200 to-pink-300 border-b py-4 md:py-8 min-h-screen md:min-h-0">
+    <section class="bg-gradient-to-br from-purple-200 to-pink-300 border-b py-0 md:py-6 min-h-screen md:min-h-0">
       <div class="container max-w-6xl mx-auto px-4 md:px-8">
         <h2 class="w-full my-2 text-3xl md:text-5xl font-bold leading-tight text-center text-purple-800">
           King Rescue Adventure
@@ -436,7 +436,7 @@
           <div class="h-1 mx-auto gradient w-32 md:w-64 opacity-25 my-0 py-0 rounded-t"></div>
         </div>
         <div class="flex flex-wrap justify-center">
-          <div class="w-full max-w-4xl p-2 md:p-6 flex flex-col flex-grow flex-shrink relative">
+          <div class="w-full max-w-xl p-0 md:p-6 flex flex-col flex-grow flex-shrink relative">
             <div class="flex-1 bg-gradient-to-br from-purple-100 to-pink-200 rounded-t rounded-b-none overflow-hidden shadow relative min-h-96 md:min-h-96">
               <div class="p-0 md:p-6 h-full flex flex-col">
                 <!-- Game Canvas - Full Screen -->
@@ -540,7 +540,7 @@
             </div>
 
             <!-- Control Buttons - Simplified Layout -->
-            <div class="mt-8 mb-4">
+            <div class="mt--2 mb-0">
               <!-- Desktop Control Buttons -->
               <div class="hidden md:flex justify-between items-center max-w-4xl mx-auto px-8">
                 <!-- Left side: Movement arrows -->
@@ -556,16 +556,16 @@
               </div>
 
               <!-- Mobile Control Buttons -->
-              <div class="md:hidden flex justify-between items-center px-4 mt-4">
+              <div class="md:hidden flex justify-between items-center px-4 mt-0">
                 <!-- Left side: Movement arrows -->
                 <div class="flex space-x-3">
-                  <button id="leftBtnMobile" class="bg-purple-600 hover:bg-purple-800 text-white font-bold w-20 h-20 rounded-full shadow-lg transform active:scale-95 transition duration-150 text-3xl flex items-center justify-center">←</button>
-                  <button id="rightBtnMobile" class="bg-purple-600 hover:bg-purple-800 text-white font-bold w-20 h-20 rounded-full shadow-lg transform active:scale-95 transition duration-150 text-3xl flex items-center justify-center">→</button>
+                  <button id="leftBtnMobile" onclick="console.log('left pressed'); if(window.game && window.game.keys) { window.game.keys['ArrowLeft'] = true; setTimeout(() => { if(window.game && window.game.keys) window.game.keys['ArrowLeft'] = false; }, 200); }" class="bg-purple-600 hover:bg-purple-800 text-white font-bold w-24 h-24 rounded-full shadow-lg transform active:scale-95 transition duration-150 text-3xl flex items-center justify-center">←</button>
+                  <button id="rightBtnMobile" onclick="console.log('right pressed'); if(window.game && window.game.keys) { window.game.keys['ArrowRight'] = true; setTimeout(() => { if(window.game && window.game.keys) window.game.keys['ArrowRight'] = false; }, 200); }" class="bg-purple-600 hover:bg-purple-800 text-white font-bold w-24 h-24 rounded-full shadow-lg transform active:scale-95 transition duration-150 text-3xl flex items-center justify-center">→</button>
                 </div>
 
                 <!-- Right side: Jump button -->
                 <div class="flex">
-                  <button id="jumpBtnMobile" class="bg-pink-600 hover:bg-pink-800 text-white font-bold w-20 h-20 rounded-full shadow-lg transform active:scale-95 transition duration-150 text-3xl flex items-center justify-center">↑</button>
+                  <button id="jumpBtnMobile" onclick="console.log('jump pressed'); if(window.game && window.game.player && window.game.gameState === 'playing') { window.game.player.velocityY = window.game.player.jumpPower; window.game.player.onGround = false; window.game.player.jumping = true; }" class="bg-pink-600 hover:bg-pink-800 text-white font-bold w-24 h-24 rounded-full shadow-lg transform active:scale-95 transition duration-150 text-3xl flex items-center justify-center">↑</button>
                 </div>
               </div>
             </div>

@@ -2619,6 +2619,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // Initialize the game
   const game = new KingRescueGame();
+  window.game = game;
 
   // Function to safely add event listeners
   function addSafeEventListener(elementId, eventType, callback) {
