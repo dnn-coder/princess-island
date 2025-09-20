@@ -834,4 +834,93 @@ button:focus {
   }
 }
 
+/* Happy Bear Modal Animations */
+@keyframes rainbowFadeIn {
+  from {
+    opacity: 0;
+    background: linear-gradient(135deg, #ff69b4, #ffb6c1);
+  }
+  to {
+    opacity: 1;
+    background: linear-gradient(135deg, #ff69b4, #ffb6c1, #ffd700);
+  }
+}
+
+@keyframes happyBounceIn {
+  0% {
+    transform: scale(0.3) rotate(-10deg);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.05) rotate(5deg);
+  }
+  70% {
+    transform: scale(0.95) rotate(-2deg);
+  }
+  100% {
+    transform: scale(1) rotate(0deg);
+    opacity: 1;
+  }
+}
+
+@keyframes heartFloat {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-10px) scale(1.1);
+  }
+}
+
+/* Happy bear modal styles */
+.happy-bear-modal-overlay {
+  animation: rainbowFadeIn 0.5s ease-in-out;
+}
+
+.happy-bear-modal-content {
+  animation: happyBounceIn 0.6s ease-out;
+}
+
+.happy-bear-svg-container svg {
+  animation: happyBounceIn 0.8s ease-out 0.2s both;
+}
+
+/* Floating hearts animation */
+.happy-bear-modal-content span {
+  animation: heartFloat 2s ease-in-out infinite;
+}
+
+.happy-bear-modal-content span:nth-child(1) { animation-delay: 0s; }
+.happy-bear-modal-content span:nth-child(2) { animation-delay: 0.3s; }
+.happy-bear-modal-content span:nth-child(3) { animation-delay: 0.6s; }
+.happy-bear-modal-content span:nth-child(4) { animation-delay: 0.9s; }
+.happy-bear-modal-content span:nth-child(5) { animation-delay: 1.2s; }
+
+/* Mobile-specific happy bear modal adjustments */
+@media (max-width: 768px) {
+  .happy-bear-modal-content {
+    max-width: 300px !important;
+    padding: 25px !important;
+  }
+
+  .happy-bear-modal-content h2 {
+    font-size: 24px !important;
+  }
+
+  .happy-bear-modal-content p {
+    font-size: 16px !important;
+  }
+
+  .happy-bear-modal-content button {
+    min-width: 140px !important;
+    min-height: 50px !important;
+    font-size: 16px !important;
+  }
+
+  .happy-bear-svg-container svg {
+    width: 120px !important;
+    height: 120px !important;
+  }
+}
+
 

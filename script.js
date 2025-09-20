@@ -197,6 +197,128 @@ function hideBearModal() {
   }
 }
 
+// Happy bear modal for "Te Amo" button
+function showHappyBearModal() {
+  let happyBearModal = document.getElementById('happyBearModal');
+  if (!happyBearModal) {
+    // Create the modal if it doesn't exist
+    happyBearModal = document.createElement('div');
+    happyBearModal.id = 'happyBearModal';
+    happyBearModal.innerHTML = `
+      <div class="happy-bear-modal-overlay" style="
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(135deg, #ff69b4, #ffb6c1, #ffd700);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 10000;
+        animation: rainbowFadeIn 0.5s ease-in-out;
+      ">
+        <div class="happy-bear-modal-content" style="
+          background: linear-gradient(135deg, #ffffff, #fff5f5);
+          border-radius: 25px;
+          padding: 30px;
+          text-align: center;
+          max-width: 320px;
+          width: 90%;
+          box-shadow: 0 15px 35px rgba(255, 105, 180, 0.4);
+          animation: happyBounceIn 0.6s ease-out;
+          position: relative;
+          border: 3px solid #ff69b4;
+        ">
+          <div class="happy-bear-svg-container" style="margin-bottom: 20px;">
+            <svg viewBox="0 0 200 200" style="width: 140px; height: 140px; margin: 0 auto; display: block;">
+              <defs>
+                <radialGradient id="happyBearHeadGrad" cx="50%" cy="50%" r="50%">
+                  <stop offset="0%" style="stop-color:#ff69b4;stop-opacity:1" />
+                  <stop offset="50%" style="stop-color:#ffb6c1;stop-opacity:1" />
+                  <stop offset="100%" style="stop-color:#ffd700;stop-opacity:1" />
+                </radialGradient>
+                <radialGradient id="happyBearCheekGrad" cx="50%" cy="50%" r="50%">
+                  <stop offset="0%" style="stop-color:#ff1493;stop-opacity:0.8" />
+                  <stop offset="100%" style="stop-color:#ffb6c1;stop-opacity:0.4" />
+                </radialGradient>
+              </defs>
+              <!-- Head -->
+              <ellipse cx="100" cy="105" rx="85" ry="75" fill="url(#happyBearHeadGrad)" />
+              <!-- Ears -->
+              <ellipse cx="60" cy="55" rx="25" ry="20" fill="url(#happyBearHeadGrad)" />
+              <ellipse cx="140" cy="55" rx="25" ry="20" fill="url(#happyBearHeadGrad)" />
+              <!-- Inner Ears -->
+              <ellipse cx="60" cy="55" rx="15" ry="10" fill="#ffb6c1" />
+              <ellipse cx="140" cy="55" rx="15" ry="10" fill="#ffb6c1" />
+              <!-- Happy Eyes -->
+              <ellipse cx="80" cy="90" rx="8" ry="6" fill="#000" />
+              <ellipse cx="120" cy="90" rx="8" ry="6" fill="#000" />
+              <!-- Eye Highlights -->
+              <circle cx="82" cy="88" r="2.5" fill="#fff" />
+              <circle cx="122" cy="88" r="2.5" fill="#fff" />
+              <!-- Blushing Cheeks -->
+              <ellipse cx="70" cy="115" rx="12" ry="8" fill="url(#happyBearCheekGrad)" />
+              <ellipse cx="130" cy="115" rx="12" ry="8" fill="url(#happyBearCheekGrad)" />
+              <!-- Happy Mouth -->
+              <path d="M85 125 Q100 145 115 125" stroke="#000" stroke-width="3" fill="none" stroke-linecap="round" />
+              <!-- Tongue -->
+              <ellipse cx="100" cy="135" rx="6" ry="8" fill="#ff69b4" />
+              <!-- Heart nose -->
+              <path d="M95 105 Q100 100 105 105 Q105 110 100 115 Q95 110 95 105 Z" fill="#ff1493" />
+            </svg>
+          </div>
+          <h2 style="
+            color: #ff1493;
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(255, 20, 147, 0.3);
+            font-family: 'Arial', sans-serif;
+          ">¡Soy muy feliz a tu lado! 💕</h2>
+          <p style="
+            color: #ff69b4;
+            font-size: 18px;
+            margin-bottom: 25px;
+            text-shadow: 1px 1px 2px rgba(255, 105, 180, 0.3);
+            font-weight: bold;
+          ">Cada momento contigo es mágico ✨</p>
+          <div style="display: flex; justify-content: center; gap: 10px; margin-bottom: 20px;">
+            <span style="font-size: 30px;">💖</span>
+            <span style="font-size: 30px;">🥰</span>
+            <span style="font-size: 30px;">💕</span>
+            <span style="font-size: 30px;">😍</span>
+            <span style="font-size: 30px;">💖</span>
+          </div>
+          <button onclick="hideHappyBearModal()" style="
+            background: linear-gradient(135deg, #ff1493, #ff69b4, #ffb6c1);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 25px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 6px 15px rgba(255, 20, 147, 0.4);
+            transition: all 0.3s ease;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+          " onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">❤️ Gracias mi amor</button>
+        </div>
+      </div>
+    `;
+    document.body.appendChild(happyBearModal);
+  } else {
+    happyBearModal.style.display = 'flex';
+  }
+}
+
+function hideHappyBearModal() {
+  const happyBearModal = document.getElementById('happyBearModal');
+  if (happyBearModal) {
+    happyBearModal.style.display = 'none';
+  }
+}
+
 // Game logic
 document.addEventListener('DOMContentLoaded', function() {
   const yesBtn = document.getElementById('yesBtn');
@@ -259,7 +381,21 @@ document.addEventListener('DOMContentLoaded', function() {
   const imageContainer = document.getElementById('imageContainer');
   const randomImage = document.getElementById('randomImage');
 
-  const images = ['images/1.jpg', 'images/2.jpg', 'images/3.jpg', 'images/4.jpg', 'images/5.jpg'];
+  // Generate dynamic image array for all images in the folder
+  // To add more images, simply place them in the images/ folder and update the number below
+  const generateImageArray = () => {
+    const images = [];
+    // Currently includes 25 images (1.jpg through 25.jpg)
+    // Update this number when you add more images to the folder
+    const totalImages = 25;
+
+    for (let i = 1; i <= totalImages; i++) {
+      images.push(`images/${i}.jpg`);
+    }
+    return images;
+  };
+
+  const images = generateImageArray();
 
   function getRandomImage() {
     return images[Math.floor(Math.random() * images.length)];
@@ -1235,6 +1371,9 @@ document.addEventListener('DOMContentLoaded', function() {
         this.ctx.fillStyle = gradient;
         this.ctx.fillRect(this.camera.x, 0, this.worldWidth, scaledHeight);
 
+        // Draw animated clouds
+        this.drawClouds();
+
         // Draw castle towers in background
         this.ctx.fillStyle = '#8B4513';
         for (let i = 0; i < 5; i++) {
@@ -1242,6 +1381,85 @@ document.addEventListener('DOMContentLoaded', function() {
           this.ctx.fillRect(x, 150, 40, 150);
           this.ctx.fillRect(x - 10, 130, 60, 20); // Tower top
         }
+      }
+    }
+
+    drawClouds() {
+      const time = this.frameCount * 0.01; // Slow animation
+
+      // Draw multiple colorful clouds at different positions
+      const clouds = [
+        { x: 100, y: 80, scale: 1.2, color: 'rgba(255, 255, 255, 0.9)' },
+        { x: 400, y: 60, scale: 0.8, color: 'rgba(255, 182, 193, 0.8)' },
+        { x: 700, y: 90, scale: 1.0, color: 'rgba(255, 215, 0, 0.7)' },
+        { x: 1000, y: 70, scale: 1.3, color: 'rgba(255, 105, 180, 0.8)' },
+        { x: 1300, y: 85, scale: 0.9, color: 'rgba(173, 216, 230, 0.8)' },
+        { x: 1600, y: 65, scale: 1.1, color: 'rgba(255, 160, 122, 0.7)' },
+        { x: 1900, y: 75, scale: 0.7, color: 'rgba(221, 160, 221, 0.8)' },
+        { x: 2200, y: 80, scale: 1.4, color: 'rgba(152, 251, 152, 0.8)' },
+        { x: 2500, y: 55, scale: 1.0, color: 'rgba(255, 218, 185, 0.8)' },
+        { x: 2800, y: 95, scale: 0.8, color: 'rgba(240, 128, 128, 0.7)' },
+        { x: 3100, y: 70, scale: 1.2, color: 'rgba(135, 206, 235, 0.8)' },
+        { x: 3400, y: 85, scale: 0.9, color: 'rgba(255, 228, 196, 0.8)' }
+      ];
+
+      clouds.forEach((cloud, index) => {
+        const cloudX = cloud.x + this.camera.x + Math.sin(time + index) * 25;
+        const cloudY = cloud.y + Math.cos(time * 0.5 + index) * 5; // Add vertical movement
+        const scale = cloud.scale;
+
+        // Main cloud body with color
+        this.ctx.fillStyle = cloud.color;
+        this.ctx.beginPath();
+        this.ctx.arc(cloudX, cloudY, 25 * scale, 0, Math.PI * 2);
+        this.ctx.arc(cloudX + 20 * scale, cloudY, 30 * scale, 0, Math.PI * 2);
+        this.ctx.arc(cloudX + 40 * scale, cloudY, 25 * scale, 0, Math.PI * 2);
+        this.ctx.arc(cloudX + 15 * scale, cloudY - 15 * scale, 20 * scale, 0, Math.PI * 2);
+        this.ctx.arc(cloudX + 35 * scale, cloudY - 15 * scale, 18 * scale, 0, Math.PI * 2);
+        this.ctx.fill();
+
+        // Add rainbow effect for some clouds
+        if (index % 3 === 0) {
+          // Rainbow arc
+          const rainbowColors = ['#ff0000', '#ff8000', '#ffff00', '#00ff00', '#0080ff', '#8000ff'];
+          rainbowColors.forEach((color, rainbowIndex) => {
+            this.ctx.strokeStyle = color;
+            this.ctx.lineWidth = 2;
+            this.ctx.beginPath();
+            this.ctx.arc(cloudX + 20 * scale, cloudY - 10 * scale, (15 + rainbowIndex * 2) * scale, Math.PI, 2 * Math.PI);
+            this.ctx.stroke();
+          });
+        }
+
+        // Enhanced shadow for depth
+        this.ctx.fillStyle = 'rgba(100, 100, 100, 0.2)';
+        this.ctx.beginPath();
+        this.ctx.arc(cloudX + 8 * scale, cloudY + 12 * scale, 18 * scale, 0, Math.PI * 2);
+        this.ctx.arc(cloudX + 28 * scale, cloudY + 12 * scale, 22 * scale, 0, Math.PI * 2);
+        this.ctx.arc(cloudX + 48 * scale, cloudY + 12 * scale, 18 * scale, 0, Math.PI * 2);
+        this.ctx.fill();
+
+        // Add sparkle effects for some clouds
+        if (index % 4 === 0 && Math.sin(time * 2 + index) > 0.8) {
+          this.ctx.fillStyle = '#ffffff';
+          this.ctx.beginPath();
+          this.ctx.arc(cloudX + 10 * scale, cloudY - 5 * scale, 2, 0, Math.PI * 2);
+          this.ctx.fill();
+          this.ctx.beginPath();
+          this.ctx.arc(cloudX + 30 * scale, cloudY - 8 * scale, 1.5, 0, Math.PI * 2);
+          this.ctx.fill();
+        }
+      });
+
+      // Add some floating particles for extra magic
+      for (let i = 0; i < 8; i++) {
+        const particleX = (this.camera.x + i * 200) % (this.worldWidth + 400) - 200;
+        const particleY = 150 + Math.sin(time * 0.8 + i) * 30;
+
+        this.ctx.fillStyle = `hsl(${(time * 50 + i * 45) % 360}, 70%, 80%)`;
+        this.ctx.beginPath();
+        this.ctx.arc(particleX, particleY, 3, 0, Math.PI * 2);
+        this.ctx.fill();
       }
     }
 
@@ -1272,108 +1490,128 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     drawKing(x, y, width, height) {
+      // Scale characters for mobile
+      const isMobile = window.innerWidth < 768;
+      const scale = isMobile ? 1.5 : 1.0; // 50% bigger on mobile
+
+      // Adjust dimensions based on scale
+      const scaledWidth = width * scale;
+      const scaledHeight = height * scale;
+      const scaledX = x - (scaledWidth - width) / 2; // Center the scaled character
+      const scaledY = y - (scaledHeight - height) / 2;
+
       // Standard king dimensions (removed crouching)
-      let drawHeight = height;
-      let bodyHeight = 20;
-      let bodyOffset = 8;
+      let drawHeight = scaledHeight;
+      let bodyHeight = 20 * scale;
+      let bodyOffset = 8 * scale;
 
       // Shield effect
       if (this.shieldActive) {
         this.ctx.strokeStyle = '#FFD700';
-        this.ctx.lineWidth = 2;
+        this.ctx.lineWidth = 2 * scale;
         this.ctx.beginPath();
-        this.ctx.arc(x + width/2, y + drawHeight/2, width/2 + 5, 0, Math.PI * 2);
+        this.ctx.arc(scaledX + scaledWidth/2, scaledY + drawHeight/2, scaledWidth/2 + 5 * scale, 0, Math.PI * 2);
         this.ctx.stroke();
       }
 
       // Invincibility effect
       if (this.invincible) {
         this.ctx.strokeStyle = this.frameCount % 10 < 5 ? '#FFFFFF' : '#FFFF00';
-        this.ctx.lineWidth = 2;
-        this.ctx.strokeRect(x - 2, y - 2, width + 4, drawHeight + 4);
+        this.ctx.lineWidth = 2 * scale;
+        this.ctx.strokeRect(scaledX - 2 * scale, scaledY - 2 * scale, scaledWidth + 4 * scale, drawHeight + 4 * scale);
       }
 
       // King body
       this.ctx.fillStyle = '#4B0082';
-      this.ctx.fillRect(x + 4, y + bodyOffset, 24, bodyHeight);
+      this.ctx.fillRect(scaledX + 4 * scale, scaledY + bodyOffset, 24 * scale, bodyHeight);
 
       // Crown
       this.ctx.fillStyle = '#FFD700';
-      this.ctx.fillRect(x + 8, y + 2, 16, 6);
-      this.ctx.fillRect(x + 6, y, 4, 4);
-      this.ctx.fillRect(x + 10, y - 2, 4, 4);
-      this.ctx.fillRect(x + 16, y - 2, 4, 4);
-      this.ctx.fillRect(x + 22, y, 4, 4);
+      this.ctx.fillRect(scaledX + 8 * scale, scaledY + 2 * scale, 16 * scale, 6 * scale);
+      this.ctx.fillRect(scaledX + 6 * scale, scaledY, 4 * scale, 4 * scale);
+      this.ctx.fillRect(scaledX + 10 * scale, scaledY - 2 * scale, 4 * scale, 4 * scale);
+      this.ctx.fillRect(scaledX + 16 * scale, scaledY - 2 * scale, 4 * scale, 4 * scale);
+      this.ctx.fillRect(scaledX + 22 * scale, scaledY, 4 * scale, 4 * scale);
 
       // Crown jewels
       this.ctx.fillStyle = '#FF1493';
-      this.ctx.fillRect(x + 9, y + 1, 2, 2);
-      this.ctx.fillRect(x + 13, y - 1, 2, 2);
-      this.ctx.fillRect(x + 19, y - 1, 2, 2);
-      this.ctx.fillRect(x + 23, y + 1, 2, 2);
+      this.ctx.fillRect(scaledX + 9 * scale, scaledY + 1 * scale, 2 * scale, 2 * scale);
+      this.ctx.fillRect(scaledX + 13 * scale, scaledY - 1 * scale, 2 * scale, 2 * scale);
+      this.ctx.fillRect(scaledX + 19 * scale, scaledY - 1 * scale, 2 * scale, 2 * scale);
+      this.ctx.fillRect(scaledX + 23 * scale, scaledY + 1 * scale, 2 * scale, 2 * scale);
 
       // Face
       this.ctx.fillStyle = '#FFE4B5';
-      this.ctx.fillRect(x + 8, y + bodyOffset, 16, 12);
+      this.ctx.fillRect(scaledX + 8 * scale, scaledY + bodyOffset, 16 * scale, 12 * scale);
 
       // Eyes
       this.ctx.fillStyle = '#000';
-      this.ctx.fillRect(x + 10, y + bodyOffset + 2, 2, 2);
-      this.ctx.fillRect(x + 18, y + bodyOffset + 2, 2, 2);
+      this.ctx.fillRect(scaledX + 10 * scale, scaledY + bodyOffset + 2 * scale, 2 * scale, 2 * scale);
+      this.ctx.fillRect(scaledX + 18 * scale, scaledY + bodyOffset + 2 * scale, 2 * scale, 2 * scale);
 
       // Mustache
       this.ctx.fillStyle = '#654321';
-      this.ctx.fillRect(x + 11, y + bodyOffset + 6, 10, 3);
+      this.ctx.fillRect(scaledX + 11 * scale, scaledY + bodyOffset + 6 * scale, 10 * scale, 3 * scale);
 
       // Arms
       this.ctx.fillStyle = '#FFE4B5';
-      this.ctx.fillRect(x + 2, y + bodyOffset + 2, 6, 8);
-      this.ctx.fillRect(x + 24, y + bodyOffset + 2, 6, 8);
+      this.ctx.fillRect(scaledX + 2 * scale, scaledY + bodyOffset + 2 * scale, 6 * scale, 8 * scale);
+      this.ctx.fillRect(scaledX + 24 * scale, scaledY + bodyOffset + 2 * scale, 6 * scale, 8 * scale);
 
       // Legs
-      let legHeight = 8;
-      let legY = y + bodyOffset + bodyHeight;
+      let legHeight = 8 * scale;
+      let legY = scaledY + bodyOffset + bodyHeight;
       this.ctx.fillStyle = '#4B0082';
-      this.ctx.fillRect(x + 8, legY, 6, legHeight);
-      this.ctx.fillRect(x + 18, legY, 6, legHeight);
+      this.ctx.fillRect(scaledX + 8 * scale, legY, 6 * scale, legHeight);
+      this.ctx.fillRect(scaledX + 18 * scale, legY, 6 * scale, legHeight);
 
       // Shoes
-      let shoeY = legY + legHeight - 2;
+      let shoeY = legY + legHeight - 2 * scale;
       this.ctx.fillStyle = '#8B4513';
-      this.ctx.fillRect(x + 6, shoeY, 10, 4);
-      this.ctx.fillRect(x + 16, shoeY, 10, 4);
+      this.ctx.fillRect(scaledX + 6 * scale, shoeY, 10 * scale, 4 * scale);
+      this.ctx.fillRect(scaledX + 16 * scale, shoeY, 10 * scale, 4 * scale);
 
       // Sword
-      let swordHeight = 16;
-      let swordY = y + bodyOffset;
+      let swordHeight = 16 * scale;
+      let swordY = scaledY + bodyOffset;
       this.ctx.fillStyle = '#C0C0C0';
-      this.ctx.fillRect(x + 28, swordY, 2, swordHeight);
+      this.ctx.fillRect(scaledX + 28 * scale, swordY, 2 * scale, swordHeight);
       this.ctx.fillStyle = '#FFD700';
-      this.ctx.fillRect(x + 26, swordY - 2, 6, 4);
+      this.ctx.fillRect(scaledX + 26 * scale, swordY - 2 * scale, 6 * scale, 4 * scale);
     }
 
     drawEnemy(x, y, width, height, type) {
+      // Scale enemies for mobile
+      const isMobile = window.innerWidth < 768;
+      const scale = isMobile ? 1.5 : 1.0; // 50% bigger on mobile
+
+      // Adjust dimensions based on scale
+      const scaledWidth = width * scale;
+      const scaledHeight = height * scale;
+      const scaledX = x - (scaledWidth - width) / 2; // Center the scaled enemy
+      const scaledY = y - (scaledHeight - height) / 2;
+
       if (type === 'nogro') {
         // Nogro enemy - menacing creature
         this.ctx.fillStyle = '#000000';
-        this.ctx.fillRect(x + 2, y + 2, width - 4, height - 4);
+        this.ctx.fillRect(scaledX + 2 * scale, scaledY + 2 * scale, scaledWidth - 4 * scale, scaledHeight - 4 * scale);
 
         // Glowing red eyes
         this.ctx.fillStyle = '#FF0000';
-        this.ctx.fillRect(x + 6, y + 6, 4, 4);
-        this.ctx.fillRect(x + 16, y + 6, 4, 4);
+        this.ctx.fillRect(scaledX + 6 * scale, scaledY + 6 * scale, 4 * scale, 4 * scale);
+        this.ctx.fillRect(scaledX + 16 * scale, scaledY + 6 * scale, 4 * scale, 4 * scale);
 
         // Sharp teeth
         this.ctx.fillStyle = '#FFFFFF';
-        this.ctx.fillRect(x + 8, y + 16, 2, 4);
-        this.ctx.fillRect(x + 10, y + 18, 2, 2);
-        this.ctx.fillRect(x + 14, y + 18, 2, 2);
-        this.ctx.fillRect(x + 16, y + 16, 2, 4);
+        this.ctx.fillRect(scaledX + 8 * scale, scaledY + 16 * scale, 2 * scale, 4 * scale);
+        this.ctx.fillRect(scaledX + 10 * scale, scaledY + 18 * scale, 2 * scale, 2 * scale);
+        this.ctx.fillRect(scaledX + 14 * scale, scaledY + 18 * scale, 2 * scale, 2 * scale);
+        this.ctx.fillRect(scaledX + 16 * scale, scaledY + 16 * scale, 2 * scale, 4 * scale);
 
         // Dark aura
         this.ctx.strokeStyle = '#330000';
-        this.ctx.lineWidth = 1;
-        this.ctx.strokeRect(x, y, width, height);
+        this.ctx.lineWidth = 1 * scale;
+        this.ctx.strokeRect(scaledX, scaledY, scaledWidth, scaledHeight);
       }
     }
 
@@ -1588,6 +1826,60 @@ document.addEventListener('DOMContentLoaded', function() {
       oscillator.stop(this.audioContext.currentTime + duration);
     }
 
+    playVictoryMusic() {
+      if (!this.audioContext) return;
+
+      // Create a victory melody using Web Audio API
+      const playNote = (frequency, startTime, duration) => {
+        const oscillator = this.audioContext.createOscillator();
+        const gainNode = this.audioContext.createGain();
+
+        oscillator.connect(gainNode);
+        gainNode.connect(this.audioContext.destination);
+
+        oscillator.frequency.setValueAtTime(frequency, startTime);
+        oscillator.type = 'triangle'; // Softer sound for victory
+
+        gainNode.gain.setValueAtTime(0, startTime);
+        gainNode.gain.linearRampToValueAtTime(0.4, startTime + 0.1);
+        gainNode.gain.setValueAtTime(0.4, startTime + duration - 0.1);
+        gainNode.gain.linearRampToValueAtTime(0, startTime + duration);
+
+        oscillator.start(startTime);
+        oscillator.stop(startTime + duration);
+      };
+
+      const currentTime = this.audioContext.currentTime;
+
+      // Victory melody notes (C major scale)
+      const melody = [
+        { note: 523, time: 0, duration: 0.4 },    // C
+        { note: 659, time: 0.4, duration: 0.4 },  // E
+        { note: 784, time: 0.8, duration: 0.4 },  // G
+        { note: 1047, time: 1.2, duration: 0.8 }, // C (higher)
+        { note: 784, time: 2.0, duration: 0.4 },  // G
+        { note: 659, time: 2.4, duration: 0.4 },  // E
+        { note: 523, time: 2.8, duration: 0.8 },  // C
+        { note: 659, time: 3.6, duration: 0.4 },  // E
+        { note: 784, time: 4.0, duration: 0.4 },  // G
+        { note: 1047, time: 4.4, duration: 1.2 }, // C (higher)
+      ];
+
+      // Play the melody
+      melody.forEach(note => {
+        playNote(note.note, currentTime + note.time, note.duration);
+      });
+
+      // Add some celebratory sound effects
+      setTimeout(() => {
+        for (let i = 0; i < 5; i++) {
+          setTimeout(() => {
+            this.playSound(800 + Math.random() * 400, 0.2, 'sine');
+          }, i * 200);
+        }
+      }, 2000);
+    }
+
     startGame() {
       if (!this.initialized) {
         console.error('Game not initialized');
@@ -1607,6 +1899,19 @@ document.addEventListener('DOMContentLoaded', function() {
             startScreen.style.visibility = 'hidden';
           }
         }, 100);
+      }
+
+      // Scroll down on mobile for better gameplay
+      if (window.innerWidth < 768) {
+        setTimeout(() => {
+          const gameSection = document.querySelector('section.bg-gradient-to-br.from-purple-200.to-pink-300');
+          if (gameSection) {
+            gameSection.scrollIntoView({
+              behavior: 'smooth',
+              block: 'start'
+            });
+          }
+        }, 200);
       }
 
       this.gameState = 'playing';
@@ -1714,42 +2019,137 @@ document.addEventListener('DOMContentLoaded', function() {
       this.uiElements.victoryAnimation.classList.remove('hidden');
 
       let frame = 0;
+      let kingX = -50; // King starts from left
+      let princessX = 450; // Princess starts from right
+      let kingY = 180;
+      let princessY = 180;
+      let animationPhase = 0; // 0: approaching, 1: meeting, 2: celebration
+
       const animate = () => {
         if (!this.victoryCtx) return;
 
         this.victoryCtx.clearRect(0, 0, 400, 300);
 
-        // Castle background
+        // Enhanced castle background with towers
         this.victoryCtx.fillStyle = '#8B4513';
         this.victoryCtx.fillRect(0, 200, 400, 100);
-        this.victoryCtx.fillRect(150, 150, 100, 50);
 
-        // Princess
-        this.victoryCtx.fillStyle = '#FF69B4';
-        this.victoryCtx.fillRect(200, 180, 30, 30);
+        // Castle towers
+        this.victoryCtx.fillRect(50, 120, 30, 80);
+        this.victoryCtx.fillRect(320, 120, 30, 80);
+        this.victoryCtx.fillRect(150, 100, 100, 100);
 
-        // King
+        // Tower tops
+        this.victoryCtx.fillRect(45, 110, 40, 15);
+        this.victoryCtx.fillRect(315, 110, 40, 15);
+        this.victoryCtx.fillRect(145, 90, 110, 15);
+
+        // Castle door
+        this.victoryCtx.fillStyle = '#654321';
+        this.victoryCtx.fillRect(185, 170, 30, 30);
+
+        // Animation phases
+        if (animationPhase === 0) {
+          // King approaching from left
+          kingX += 2;
+          if (kingX >= 140) {
+            kingX = 140;
+            animationPhase = 1;
+          }
+
+          // Princess approaching from right
+          princessX -= 2;
+          if (princessX <= 230) {
+            princessX = 230;
+            animationPhase = 1;
+          }
+        } else if (animationPhase === 1) {
+          // They meet and celebrate
+          if (frame > 100) {
+            animationPhase = 2;
+          }
+        } else if (animationPhase === 2) {
+          // Celebration phase - they jump together
+          kingY = 180 - Math.sin(frame * 0.1) * 10;
+          princessY = 180 - Math.sin(frame * 0.1) * 10;
+        }
+
+        // Draw King with enhanced details
         this.victoryCtx.fillStyle = '#4B0082';
-        this.victoryCtx.fillRect(170, 180, 30, 30);
+        this.victoryCtx.fillRect(kingX, kingY, 30, 30);
 
-        // Victory text
+        // King crown
+        this.victoryCtx.fillStyle = '#FFD700';
+        this.victoryCtx.fillRect(kingX + 5, kingY - 5, 20, 8);
+        this.victoryCtx.fillRect(kingX + 3, kingY - 8, 6, 5);
+        this.victoryCtx.fillRect(kingX + 9, kingY - 10, 4, 5);
+        this.victoryCtx.fillRect(kingX + 17, kingY - 10, 4, 5);
+        this.victoryCtx.fillRect(kingX + 21, kingY - 8, 6, 5);
+
+        // King sword
+        this.victoryCtx.fillStyle = '#C0C0C0';
+        this.victoryCtx.fillRect(kingX + 32, kingY + 5, 3, 20);
+        this.victoryCtx.fillStyle = '#FFD700';
+        this.victoryCtx.fillRect(kingX + 30, kingY, 7, 6);
+
+        // Draw Princess with enhanced details
+        this.victoryCtx.fillStyle = '#FF69B4';
+        this.victoryCtx.fillRect(princessX, princessY, 30, 30);
+
+        // Princess crown
+        this.victoryCtx.fillStyle = '#FFD700';
+        this.victoryCtx.fillRect(princessX + 5, princessY - 5, 20, 8);
+        this.victoryCtx.fillRect(princessX + 3, princessY - 8, 6, 5);
+        this.victoryCtx.fillRect(princessX + 9, princessY - 10, 4, 5);
+        this.victoryCtx.fillRect(princessX + 17, princessY - 10, 4, 5);
+        this.victoryCtx.fillRect(princessX + 21, princessY - 8, 6, 5);
+
+        // Princess dress details
+        this.victoryCtx.fillStyle = '#FFB6C1';
+        this.victoryCtx.fillRect(princessX + 2, princessY + 30, 8, 10);
+        this.victoryCtx.fillRect(princessX + 20, princessY + 30, 8, 10);
+
+        // Victory text with animation
         this.victoryCtx.fillStyle = '#000';
-        this.victoryCtx.font = '20px Arial';
+        this.victoryCtx.font = 'bold 20px Arial';
         this.victoryCtx.textAlign = 'center';
-        this.victoryCtx.fillText('¡Victoria!', 200, 50);
-        this.victoryCtx.fillText('El Rey ha salvado a la Princesa', 200, 80);
 
-        // Hearts animation
-        for (let i = 0; i < 10; i++) {
-          const x = 200 + Math.sin(frame * 0.1 + i) * 100;
-          const y = 120 + Math.cos(frame * 0.1 + i) * 50;
-          this.victoryCtx.fillStyle = '#FF69B4';
+        if (animationPhase === 2) {
+          this.victoryCtx.fillText('¡Victoria!', 200, 40);
+          this.victoryCtx.font = '16px Arial';
+          this.victoryCtx.fillText('El Rey ha salvado a la Princesa', 200, 65);
+          this.victoryCtx.fillText('¡Amor Eterno! 💕', 200, 85);
+        } else {
+          this.victoryCtx.fillText('¡Victoria!', 200, 50);
+          this.victoryCtx.font = '16px Arial';
+          this.victoryCtx.fillText('El Rey rescata a la Princesa', 200, 75);
+        }
+
+        // Enhanced hearts animation
+        for (let i = 0; i < 15; i++) {
+          const x = 200 + Math.sin(frame * 0.08 + i) * 120;
+          const y = 120 + Math.cos(frame * 0.06 + i) * 60;
+          this.victoryCtx.fillStyle = i % 3 === 0 ? '#FF1493' : i % 3 === 1 ? '#FF69B4' : '#FFB6C1';
+          this.victoryCtx.font = '20px Arial';
           this.victoryCtx.fillText('♥', x, y);
         }
 
+        // Sparkle effects during celebration
+        if (animationPhase === 2) {
+          for (let i = 0; i < 8; i++) {
+            const x = 150 + Math.random() * 100;
+            const y = 100 + Math.random() * 80;
+            this.victoryCtx.fillStyle = '#FFFF00';
+            this.victoryCtx.fillText('✨', x, y);
+          }
+        }
+
         frame++;
-        if (frame < 300) {
+        if (frame < 400) {
           requestAnimationFrame(animate);
+        } else {
+          // Play victory music when animation ends
+          this.playVictoryMusic();
         }
       };
       animate();
@@ -1795,6 +2195,15 @@ document.addEventListener('DOMContentLoaded', function() {
         if (callback) callback();
       });
     }
+  }
+
+  // Add event listener for "Te Amo" button
+  const teAmoBtn = document.getElementById('teAmoBtn');
+  if (teAmoBtn) {
+    teAmoBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      showHappyBearModal();
+    });
   }
 
   // Event listeners for game buttons with improved error handling
